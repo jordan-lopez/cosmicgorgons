@@ -489,7 +489,7 @@ header {
   right: 0;
   width: 100%;
   height: 100%;
-  background: rgba(36, 40, 47, 0.5);
+  /* background: rgba(36, 40, 47, 0.5); */
   z-index: 1;
 }
 /* Page Banner */
@@ -497,8 +497,8 @@ header {
   position: relative;
   margin-top: 80px;
   height: 235px;
-  padding-top: 91px;
-  background: url(../img/bgs-top/img-1.jpg) center center no-repeat;
+  padding-top: 76px;
+  background: url(../img/banner-3.png) center center no-repeat;
 }
 .page-banner .section-name {
   position: relative;

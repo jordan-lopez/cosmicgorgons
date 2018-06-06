@@ -1,194 +1,206 @@
 @extends('layout.master')
 
 @section('stylesheets')
-<link rel="stylesheet" href="{{ asset('/css/pricetable.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/pages/menu_schedule.css') }}">
 @endsection
 @section('content')
-	<!-- Banner -->
+	 <!-- Banner -->
 	<div class="page-banner">
 		<div class="container">
-			<div class="parallax-mask"></div>
-			<div class="section-name">
-				<h2>Food Menu, Daily Schedule, & Promos</h2>
-			</div>
+		  <div class="parallax-mask"></div>
+		  <div class="section-name">
+		    <h1 class="banner-title">Food Menu &nbsp;&nbsp; | &nbsp;&nbsp; Daily Schedule &nbsp;&nbsp; | &nbsp;&nbsp; Promos</h1>
+		  </div>
 		</div>
 	</div>
-	
-<!-- Price Table Snacks Start -->
-	<div class="contact-page-wrapper">
-		<div class="container">
-			<h4 style="text-align:center">FOOD MENU</h4>
-			<p style="text-align:center">The Gorgonauts Favorites</p>
-			</br>
-			<!-- Snacks Photo -->
-			<img src="{{ asset('/img/store/cgsnacks.png') }}" alt="snacks" style="width:200px;">
-			<!-- Snacks Photo -->
-			</br>
-			<div class="snacks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">French Fries</li>
-				<li class="grey">P 90.00</li>
-				<li>BBQ Cheese Sour Cream</li>
-			  </ul>
-			</div>
 
-			<div class="snacks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Cheese Sticks</li>
-				<li class="grey">P 100.00</li>
-				<li>&nbsp;</li>
-			  </ul>
-			</div>
+	<!-- content wrapper -->
+	<div class="p-wrapper" style="padding-top:30px;">
+		<div class="p-content container">
+		  <!-- menu schedule title -->
+		  <div class="row ">
+		    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		      <div class="p-title">
+		        <h1 class="p-title__heading--is-large">Food Menu</h1>
+		        <h3 class="p-title__heading--is-medium">The Gorgonauts' Favorites!</h3>
+		      </div>
+		    </div>
+		  </div>
+		  <!-- /menu schedule title -->
 
-			<div class="snacks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Hashbrown</li>
-				<li class="grey">P 35.00</li>
-				<li>&nbsp;</li>
-			  </ul>
-			</div>
-			
-				<div class="snacks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Hotpockets</li>
-				<li class="grey">P 120.00</li>
-				<li>Ham & Cheese Pizza</li>
-			  </ul>
-			</div>
-			
-				<div class="snacks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Nachos</li>
-				<li class="grey">P 180.00</li>
-				<li>&nbsp;</li>
-			  </ul>
-			</div>
-			
+		  <div class="p-food-menu">
+		    <!-- snacks content -->
+		    <div class="row">
+		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		        <div class="p-food-menu-category">
+		          <h2 class="p-food-menu__heading">SNACKS</h2>
+		          <ul class="p-food-menu__list">
+		            <li>
+		              <img src="{{ asset('/img/food menu icons/cheese-sticks.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">cheese sticks</h2>
+		              <p class="p-food-menu__list--ingredients"></p>
+		              <h2 class="p-food-menu__list--price">100.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/french-fries.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">french fries</h2>
+		              <p class="p-food-menu__list--ingredients">bbq, cheese, sour cream</p>
+		              <h2 class="p-food-menu__list--price">90.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/hashbrown.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">hashbrown</h2>
+		              <p class="p-food-menu__list--ingredients"></p>
+		              <h2 class="p-food-menu__list--price">35.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/hotpockets.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">hotpockets</h2>
+		              <p class="p-food-menu__list--ingredients">ham &amp; cheese pizza</p>
+		              <h2 class="p-food-menu__list--price">120.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/nachos.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">Nachos</h2>
+		              <p class="p-food-menu__list--ingredients"></p>
+		              <h2 class="p-food-menu__list--price">180.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <!-- /snacks content -->
+
+		    <!-- rice meals content -->
+		    <div class="row">
+		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		        <div class="p-food-menu-category">
+		          <h2 class="p-food-menu__heading">RICE MEALS</h2>
+		          <ul class="p-food-menu__list">
+		            <li>
+		              <img src="{{ asset('img/food menu icons/cahmbow-meal.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">cahmbow meal</h2>
+		              <p class="p-food-menu__list--ingredients">spam + nuggets + rice</p>
+		              <h2 class="p-food-menu__list--price">160.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/space-jam.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">space jam</h2>
+		              <p class="p-food-menu__list--ingredients">spam with rice</p>
+		              <h2 class="p-food-menu__list--price">110.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/space-nuggets.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">space nuggets</h2>
+		              <p class="p-food-menu__list--ingredients">nuggets with rice</p>
+		              <h2 class="p-food-menu__list--price">110.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/you-bacon-me-crazy.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">you bacon me crazy</h2>
+		              <p class="p-food-menu__list--ingredients">bacon with rice</p>
+		              <h2 class="p-food-menu__list--price">135.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <!-- /rice meals content -->
+
+		    <!-- drinks content -->
+		    <div class="row">
+		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		        <div class="p-food-menu-category">
+		          <h2 class="p-food-menu__heading">DRINKS</h2>
+		          <ul class="p-food-menu__list">
+		            <li>
+		              <img src="{{ asset('img/food menu icons/float.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">float</h2>
+		              <p class="p-food-menu__list--ingredients">coke, mtn dew, mug</p>
+		              <h2 class="p-food-menu__list--price">65.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/unli-iced-tea.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">unli iced tea</h2>
+		              <p class="p-food-menu__list--ingredients"></p>
+		              <h2 class="p-food-menu__list--price">50.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		            <li>
+		              <img src="{{ asset('img/food menu icons/softdrinks.png') }}" class="p-food-menu-image">
+		              <h2 class="p-food-menu__list--name">softdrinks</h2>
+		              <p class="p-food-menu__list--ingredients">coke, mtn dew, mug</p>
+		              <h2 class="p-food-menu__list--price">35.00php</h2>
+		              <div class="clearfix"></div>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <!-- /drinks content -->
+		  </div>
+
+		  <!-- daily schedule title -->
+		  <div class="row ">
+		    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		      <div class="p-title">
+		        <h1 class="p-title__heading--is-large">Daily Schedule</h1>
+		        <h3 class="p-title__heading--is-medium">Fun and Exciting Time!</h3>
+		      </div>
+		    </div>
+		  </div>
+		  <!-- /daily schedule title -->
+
+		  <!-- daily schedule content -->
+		  <div class="p-food-menu">
+		    <div class="row">
+		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		        <div class="p-daily-schedule">
+		          <ul class="p-daily-schedule-rates">
+		            <li class="p-daily-schedule__card">
+		              <h2 class="p-daily-schedule__heading">tuesday/thursday</h2>
+		              <hr>
+		              <p class="p-daily-schedule_paragraph">Regular Rates</p>
+		            </li>
+		            <li class="p-daily-schedule__card">
+		              <h2 class="p-daily-schedule__heading">wednesday</h2>
+		              <hr>
+		              <p class="p-daily-schedule_paragraph">2 + 1 Hour Promo</p>
+		            </li>
+		            <li class="p-daily-schedule__card">
+		              <h2 class="p-daily-schedule__heading">friday</h2>
+		              <hr>
+		              <p class="p-daily-schedule_paragraph">FGC Promo</p>
+		            </li>
+		            <li class="p-daily-schedule__card">
+		              <h2 class="p-daily-schedule__heading">saturday</h2>
+		              <hr>
+		              <p class="p-daily-schedule_paragraph">Cosmic Events</p>
+		            </li>
+		            <li class="p-daily-schedule__card">
+		              <h2 class="p-daily-schedule__heading">sunday</h2>
+		              <hr>
+		              <p class="p-daily-schedule_paragraph">Cosmic Quest</p>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  <!-- /daily schedule content -->
 		</div>
 	</div>
-<!-- Price Table Snacks End -->
-
-<!-- Price Table Rice Meals Start -->
-	<div class="contact-page-wrapper">
-		<div class="container">		
-		<!-- Snacks Photo -->
-		<img src="{{ asset('/img/store/cgricemeals.png') }}" alt="rice meals" style="width:200px;">
-		<!-- Snacks Photo -->
-		</br>
-			<div class="ricemeals">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Space Nuggets</li>
-				<li class="grey">P 110.00</li>
-				<li>Nuggets + Rice</li>
-			  </ul>
-			</div>
-
-			<div class="ricemeals">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Space Jam</li>
-				<li class="grey">P 110.00</li>
-				<li>Space + Rice</li>
-			  </ul>
-			</div>
-
-			<div class="ricemeals">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">You Bacon Me Crazy</li>
-				<li class="grey">P 135.00</li>
-				<li>Bacon + Rice</li>
-			  </ul>
-			</div>			
-			
-			<div class="ricemeals">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Cahmbow Meal</li>
-				<li class="grey">P 160.00</li>
-				<li>Nuggets + Spam + Rice</li>
-			  </ul>
-			</div>
-		</div>
-	</div>
-<!-- Price Table Rice Meals End -->
-
-<!-- Price Table Drinks Start -->
-	<div class="contact-page-wrapper">
-		<div class="container">
-		<!-- Snacks Photo -->
-		<img src="{{ asset('/img/store/cgdrinks.png') }}" alt="drinks" style="width:200px;">
-		<!-- Snacks Photo -->
-		</br>
-			<div class="drinks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Softdrinks</li>
-				<li class="grey">P 35.00</li>
-				<li>Coke, Mountain Dew, MUG</li>
-			  </ul>
-			</div>
-
-			<div class="drinks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Unli Iced Tea</li>
-				<li class="grey">P 50.00</li>
-				<li>&nbsp;</li>
-			  </ul>
-			</div>
-
-			<div class="drinks">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Float</li>
-				<li class="grey">P 65.00</li>
-				<li>Coke, Mountain Dew, MUG</li>
-			  </ul>
-			</div>			
-		</div>
-	</div>
-<!-- Price Table Drinks End -->
-
-<!-- Schedule Start -->
-	<div class="contact-page-wrapper">
-		<div class="container">
-			</br>
-				<h4 style="text-align:center">DAILY SCHEDULE</h4>
-				<p style="text-align:center">Fun & Exciting Time</p>
-
-			<!-- Scheduled Description -->
-			<div class="schedule">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Tuesday/Thursday</li>
-				<li class="schedesc">Regular Rates</li>
-			  </ul>
-			</div>
-
-			<div class="schedule">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Wednesday</li>
-				<li class="schedesc">2 + 1 Hour Promo</li>
-			  </ul>
-			</div>
-
-			<div class="schedule">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Friday</li>
-				<li class="schedesc">FGC Promo</li>
-			  </ul>
-			</div>
-			
-			<div class="schedule">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Saturday</li>
-				<li class="schedesc">Cosmic Events</li>
-			  </ul>
-			</div>
-			
-			<div class="schedule">
-			  <ul class="price">
-				<li class="header" style="background-color:#33CCCC">Sunday</li>
-				<li class="schedesc">Cosmic Quest</li>
-			  </ul>
-			</div>
-		</div>
-	</div>
-<!-- Schedule End -->
+	<!-- /content wrapper -->
 @endsection
 
 @section('scripts')
