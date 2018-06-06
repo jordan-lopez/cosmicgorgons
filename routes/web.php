@@ -22,4 +22,7 @@ Route::get('leaderboardRanking', 'PagesController@leaderboardRanking');
 Route::get('foodMenuSched', 'PagesController@foodMenuSched');
 Route::get('contactUs', 'PagesController@contactUs');
 Route::get('aboutUs', 'PagesController@aboutUs');
+Route::get('bridgeCommand', 'PagesController@bridgeCommand');
+Route::get('theCrew', 'PagesController@theCrew');
+Route::get('esportsTeam', 'PagesController@esportsTeam');
 Route::get('/', 'PagesController@index');

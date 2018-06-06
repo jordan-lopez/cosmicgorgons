@@ -43,4 +43,16 @@ class PagesController extends Controller {
 	public function blogSingle() {
 		return view('blog-single')->with(array('page' => 'Blog Single'));
 	}
+
+	public function bridgeCommand() {
+		return view('the-gorgonauts')->with(array('page' => 'Bridge Command'));
+	}
+
+	public function theCrew() {
+		return view('the-gorgonauts')->with(array('page' => 'The Crew'));
+	}
+
+	public function esportsTeam() {
+		return view('the-gorgonauts')->with(array('page' => 'ESPORTS Team'));
+	}
 }

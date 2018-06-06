@@ -44,12 +44,11 @@
 								</ul>
 							</li>
 							<li>
-								<span>Community</span>
+								<span>The Gorgonauts</span>
 								<ul class="submenu">
-									<li><a href="causes-grid.php">The Gorgonauts</a></li>
-									<li><a href="causes-list.php">Cosmic Gorgons Ragnarok Guild</a></li>
-									<li><a href="causes-list.php">Bregz</a></li>
-									<li><a href="causes-single.php" class="active">D-Krew</a></li>
+									<li><a href="bridgeCommand">Bridge Command</a></li>
+									<li><a href="theCrew">The Crew</a></li>
+									<li><a href="esportsTeam">ESPORTS Team</a></li>
 								</ul>
 							</li>
 							<li>
@@ -103,12 +102,11 @@
 													<li><a href="causes-single.php" class="active">Cosmic Content</a></li>
 												</ul>
 											</li>
-											<li><a href="about-us.php">Community</a>
+											<li><a href="about-us.php">The Gorgonauts</a>
 												<ul class="single">
-													<li><a href="causes-grid.php">The Gorgonauts</a></li>
-													<li><a href="causes-list.php">Cosmic Gorgons Ragnarok Guild</a></li>
-													<li><a href="causes-list.php">Bregz</a></li>
-													<li><a href="causes-single.php" class="active">D-Krew</a></li>
+													<li><a href="causes-grid.php">Bridge Command</a></li>
+													<li><a href="causes-list.php">The Crew</a></li>
+													<li><a href="causes-list.php">ESPORTS Team</a></li>
 												</ul>
 											</li>
 											<li><a href="contact-us.php">Partners</a></li>
