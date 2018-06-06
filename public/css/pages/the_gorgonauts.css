@@ -1,0 +1,158 @@
+@font-face {
+  font-family: Chosence;
+  src: url(../../fonts/Chosence-regular.otf) format('OpenType');
+}
+
+@font-face {
+  font-family: Sex Drugs and Fidget Spinners;
+  src: url(../../fonts/Sex-drugs-and-fidget-spinners.otf) format('OpenType');
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
+.p-wrapper {
+  padding: 30px 0 0px;
+  background: #f6f6f6;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.p-content {
+  padding-top: 20px;
+}
+
+.banner-title {
+  font-family: "Chosence", "Arial", "sans-serif";
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 2px 2px 3px #2b2b2b;
+}
+
+.p-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.p-title__heading--is-large {
+  font-family: "Aliens-and-cows", "Arial", "sans-serif";
+  font-size: 4.286rem;
+  color: #33cccc;
+  line-height: 1.5;
+  -webkit-text-stroke: 1px #ff00ff;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  /* text-shadow: 0 1px 2px #2b2b2b; */
+}
+
+.p-the-gorgonauts__heading {
+  text-align: left;
+  font-family: "Spaceboy", "Arial", "sans-serif";
+  color: #33cccc;
+  line-height: 1.5;
+  -webkit-text-stroke: 0.75px #ff00ff;
+  margin: 15px 0;
+}
+
+.p-the-gorgonauts__heading:nth-child(1) {
+  margin: 0 0 15px 0;
+}
+
+.p-the-gorgonauts__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-the-gorgonauts__socials li a {
+  background: #33cccc none repeat scroll 0 0;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 19px;
+  height: 37px;
+  line-height: 38px;
+  margin-left: 5px;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  width: 37px;
+}
+
+.p-the-gorgonauts__socials li a:hover {
+  background: #28a0a0 none repeat scroll 0 0;
+}
+
+.p-the-gorgonauts__paragraph--is-name {
+  font-family: "Chosence", "Arial", "sans-serif" !important;
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-bottom: 5px !important;
+}
+
+.p-the-gorgonauts__paragraph--is-position {
+  font-family: "Arial", "sans-serif";
+}
+
+.p-the-gorgonauts__paragraph--is-ign {
+  font-family: "Sex Drugs and Fidget Spinners";
+  font-size: 1.75rem;
+  color: #ff00ff;
+  margin: 0 0 10px 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 320px) {
+  .page-banner {
+    display: none;
+  }
+
+  .p-wrapper {
+    margin-top: 120px;
+  }
+
+  .p-the-gorgonauts__heading {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 479px) {
+  .page-banner {
+    display: none;
+  }
+
+  .p-wrapper {
+    margin-top: 120px;
+  }
+
+  .p-the-gorgonauts__heading {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width:767px) {
+  .banner-title {
+    font-size: 2.571rem;
+    padding-top: 9px;
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .banner-title {
+    font-size: 4.286rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .banner-title {
+    font-size: 4.286rem;
+    padding-top: 15px;
+  }
+
+  .page-banner {
+    margin-top: 125px;
+  }
+}
+
+@media (min-width: 1200px) {}
