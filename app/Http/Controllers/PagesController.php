@@ -9,23 +9,23 @@ class PagesController extends Controller {
 	}
 
 	public function aboutUs() {
-		return view('about-us')->with(array('page' => 'About Us'));
+		return view('about_us')->with(array('page' => 'About Us'));
 	}
 
 	public function contactUs() {
-		return view('contact-us')->with(array('page' => 'Contact Us'));	
+		return view('contact_us')->with(array('page' => 'Contact Us'));	
 	}
 
 	public function foodMenuSched() {
-		return view('food-menu-sched')->with(array('page' => 'Food Menu, Schedule & Promos'));
+		return view('food_menu_sched')->with(array('page' => 'Food Menu, Schedule & Promos'));
 	}
 
 	public function leaderboardRanking() {
-		return view('leaderboard-ranking')->with(array('page' => 'Leaderboards & Rankings'));
+		return view('leaderboard_ranking')->with(array('page' => 'Leaderboards & Rankings'));
 	}
 
 	public function cosmicQuest() {
-		return view('cosmic-quest')->with(array('page' => 'Cosmic Quest'));	
+		return view('cosmic_quest')->with(array('page' => 'Cosmic Quest'));	
 	}
 
 	public function loyaltyMembership() {
@@ -33,26 +33,26 @@ class PagesController extends Controller {
 	}
 
 	public function andBeyond() {
-		return view('and-beyond')->with(array('page' => 'And Beyond'));
+		return view('and_beyond')->with(array('page' => 'And Beyond'));
 	}
 
 	public function blogList() {
-		return view('blog-list')->with(array('page' => 'Blog List'));
+		return view('blog_list')->with(array('page' => 'Blog List'));
 	}
 
 	public function blogSingle() {
-		return view('blog-single')->with(array('page' => 'Blog Single'));
+		return view('blog_single')->with(array('page' => 'Blog Single'));
 	}
 
 	public function bridgeCommand() {
-		return view('bridge-command')->with(array('page' => 'Bridge Command'));
+		return view('bridge_command')->with(array('page' => 'Bridge Command'));
 	}
 
 	public function theCrew() {
-		return view('the-crew')->with(array('page' => 'The Crew'));
+		return view('the_crew')->with(array('page' => 'The Crew'));
 	}
 
 	public function esportsTeam() {
-		return view('esports-team')->with(array('page' => 'ESPORTS Team'));
+		return view('esports_team')->with(array('page' => 'ESPORTS Team'));
 	}
 }
