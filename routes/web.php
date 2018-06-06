@@ -13,15 +13,15 @@
 // Admin Pages
 Route::get('dashboard', 'AdminController@dashboard');
 
-Route::get('blogSingle', 'PagesController@blogSingle');
-Route::get('blogList', 'PagesController@blogList');
-Route::get('andBeyond', 'PagesController@andBeyond');
-Route::get('loyaltyMembership', 'PagesController@loyaltyMembership');
-Route::get('cosmicQuest', 'PagesController@cosmicQuest');
-Route::get('leaderboardRanking', 'PagesController@leaderboardRanking');
-Route::get('foodMenuSched', 'PagesController@foodMenuSched');
-Route::get('contactUs', 'PagesController@contactUs');
-Route::get('aboutUs', 'PagesController@aboutUs');
+Route::get('blog-single', 'PagesController@blogSingle');
+Route::get('blog-list', 'PagesController@blogList');
+Route::get('and-beyond', 'PagesController@andBeyond');
+Route::get('loyalty-membership', 'PagesController@loyaltyMembership');
+Route::get('cosmic-quest', 'PagesController@cosmicQuest');
+Route::get('leaderboard-ranking', 'PagesController@leaderboardRanking');
+Route::get('food-menu-sched', 'PagesController@foodMenuSched');
+Route::get('contact-us', 'PagesController@contactUs');
+Route::get('about-us', 'PagesController@aboutUs');
 Route::get('bridge-command', 'PagesController@bridgeCommand');
 Route::get('the-crew', 'PagesController@theCrew');
 Route::get('esports-team', 'PagesController@esportsTeam');
