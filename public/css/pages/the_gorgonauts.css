@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: Spaceboy;
+  src: url(../../fonts/Spaceboy.ttf) format('TrueType');
+}
+
+@font-face {
   font-family: Sex Drugs and Fidget Spinners;
   src: url(../../fonts/Sex-drugs-and-fidget-spinners.otf) format('OpenType');
 }
