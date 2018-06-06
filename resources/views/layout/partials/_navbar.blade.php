@@ -24,22 +24,22 @@
 								<a href="/" >Home</a>
 							</li>
 							<li>
-								<a href="aboutUs">About</a>
+								<a href="about-us">About</a>
 							</li>
 							<li>
 								<span>Store</span>
 								<ul class="submenu">
-									<li><a href="foodMenuSched">Menu & Schedule</a></li>
-									<li><a href="leaderboardRanking">Leaderboards & Rankings</a></li>
-									<li><a href="cosmicQuest">Cosmic Quest</a></li>
-									<li><a href="loyaltyMembership">Loyalty & Membership</a></li>
+									<li><a href="food-menu-sched">Menu & Schedule</a></li>
+									<li><a href="leaderboard-ranking">Leaderboards & Rankings</a></li>
+									<li><a href="cosmic-quest">Cosmic Quest</a></li>
+									<li><a href="loyalty-membership">Loyalty & Membership</a></li>
 									<li><a href="https://fundr.customthread.com/cosmicgorgons" class="active">Merchandise</a></li>
 								</ul>
 							</li>
 							<li>
 								<span>Mothership</span>
 								<ul class="submenu">
-									<li><a href="andBeyond">And Beyond</a></li>
+									<li><a href="and-beyond">And Beyond</a></li>
 									<li><a href="cosmiccontent.php" class="active">Cosmic Content</a></li>
 								</ul>
 							</li>
@@ -57,12 +57,12 @@
 							<li>
 								<span>Blog</span>
 								<ul class="submenu">
-									<li><a href="blogList">Blog List</a></li>
-									<li><a href="blogSingle">Blog Single</a></li>
+									<li><a href="blog-list">Blog List</a></li>
+									<li><a href="blog-single">Blog Single</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="contactUs">Contact</a>
+								<a href="contact-us">Contact</a>
 							</li>
 						</ul>
 					</div>
@@ -85,38 +85,38 @@
 								<div class="mobile-menu">
 									<nav id="mobile-nav">
 										<ul>
-											<li><a href="index.php">Home </a></li>
-											<li><a href="about-us.php">About</a></li>
-											<li><a href="causes-grid.php">Store</a>
+											<li><a href="/">Home </a></li>
+											<li><a href="about-us">About</a></li>
+											<li><a href="#">Store</a>
 												<ul class="single">
-													<li><a href="menusched.php">Menu & Schedule</a></li>
-													<li><a href="leadrank.php">Leaderboards & Rankings</a></li>
-													<li><a href="cosmicquest.php">Cosmic Quest</a></li>
-													<li><a href="loyalmembership.php">Loyalty & Membership</a></li>
+													<li><a href="food-menu-sched">Menu & Schedule</a></li>
+													<li><a href="leaderboard-ranking">Leaderboards & Rankings</a></li>
+													<li><a href="cosmic-quest">Cosmic Quest</a></li>
+													<li><a href="loyalty-membership">Loyalty & Membership</a></li>
 													<li><a href="https://fundr.customthread.com/cosmicgorgons" class="active">Merchandise</a></li>
 												</ul>
 											</li>
-											<li><a href="gallery.php">Mothership</a>
+											<li><a href="#">Mothership</a>
 												<ul class="single">
-													<li><a href="causes-grid.php">And Beyond</a></li>
-													<li><a href="causes-single.php" class="active">Cosmic Content</a></li>
+													<li><a href="and-beyond">And Beyond</a></li>
+													<li><a href="cosmiccontent.php" class="active">Cosmic Content</a></li>
 												</ul>
 											</li>
-											<li><a href="about-us.php">The Gorgonauts</a>
+											<li><a href="#">The Gorgonauts</a>
 												<ul class="single">
-													<li><a href="causes-grid.php">Bridge Command</a></li>
-													<li><a href="causes-list.php">The Crew</a></li>
-													<li><a href="causes-list.php">ESPORTS Team</a></li>
+													<li><a href="bridge-command">Bridge Command</a></li>
+													<li><a href="the-crew">The Crew</a></li>
+													<li><a href="esports-team">ESPORTS Team</a></li>
 												</ul>
 											</li>
-											<li><a href="contact-us.php">Partners</a></li>
-											<li><a href="blog-list.php">Blog</a>
+											<li><a href="#">Partners</a></li>
+											<li><a href="#">Blog</a>
 												<ul>
-													<li><a href="blog-list.php">Blog List</a></li>
-													<li><a href="blog-single.php">Blog Single</a></li>
+													<li><a href="blog-list">Blog List</a></li>
+													<li><a href="blog-single">Blog Single</a></li>
 												</ul>
 											</li>
-											<li><a href="contact-us.php">Contact</a></li>
+											<li><a href="contact-us">Contact</a></li>
 										</ul>
 									</nav>
 								</div>	
