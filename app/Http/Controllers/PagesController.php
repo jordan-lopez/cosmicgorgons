@@ -45,14 +45,14 @@ class PagesController extends Controller {
 	}
 
 	public function bridgeCommand() {
-		return view('the-gorgonauts')->with(array('page' => 'Bridge Command'));
+		return view('bridge-command')->with(array('page' => 'Bridge Command'));
 	}
 
 	public function theCrew() {
-		return view('the-gorgonauts')->with(array('page' => 'The Crew'));
+		return view('the-crew')->with(array('page' => 'The Crew'));
 	}
 
 	public function esportsTeam() {
-		return view('the-gorgonauts')->with(array('page' => 'ESPORTS Team'));
+		return view('esports-team')->with(array('page' => 'ESPORTS Team'));
 	}
 }

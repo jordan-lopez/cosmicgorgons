@@ -18,7 +18,7 @@
 					<div class="logo-wrap col-md-3 col-xs-6">
 						<a href="/"><img src="{{ asset('/img/icons/cg_icon.png') }}" style="max-height:50px;" /></a>
 					</div>
-					<div class="menu-wrap col-md-8 ">
+					<div class="menu-wrap col-md-9">
 						<ul class="menu">
 							<li>
 								<a href="/" >Home</a>
@@ -46,9 +46,9 @@
 							<li>
 								<span>The Gorgonauts</span>
 								<ul class="submenu">
-									<li><a href="bridgeCommand">Bridge Command</a></li>
-									<li><a href="theCrew">The Crew</a></li>
-									<li><a href="esportsTeam">ESPORTS Team</a></li>
+									<li><a href="bridge-command">Bridge Command</a></li>
+									<li><a href="the-crew">The Crew</a></li>
+									<li><a href="esports-team">ESPORTS Team</a></li>
 								</ul>
 							</li>
 							<li>
