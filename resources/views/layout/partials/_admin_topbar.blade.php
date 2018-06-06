@@ -143,21 +143,5 @@
                         </h4>
                     </div>
                 </div>
-                <div class="row ">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active s-12" href="#">Today</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link s-12" href="#">Yesterday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link s-12" href="#">By Date</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link s-12" href="#">By Progress</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </header>

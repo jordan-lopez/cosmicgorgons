@@ -11,6 +11,7 @@
 |
 */
 // Admin Pages
+Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
 Route::get('dashboard', 'AdminController@dashboard');
 
 Route::get('blog-single', 'PagesController@blogSingle');
