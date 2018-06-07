@@ -12,7 +12,7 @@
                     <div class="card-handle">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_new_food">Add New</button>
                     </div>
-                    <h4 class="card-title">Featured News</h4>
+                    <h4 class="card-title">Events</h4>
                     <small class="card-subtitle mb-2 text-muted">Monthly and weekly events.</small>
                 </div>
                 <div class="collapse show" id="salesCard">
@@ -61,21 +61,25 @@
                     <div class="col-lg-12">
                         <div class="p-40">
                             <div class="form-group">
-                                <label for="txt_food_name" class="control-label">Name:*</label>
-                                <input type="text" class="form-control" id="txt_food_name" name="txt_food_name" autocomplete="off">
+                                <label for="txt_news_name" class="control-label">Name:*</label>
+                                <input type="text" class="form-control" id="txt_news_name" name="txt_food_name" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="txt_food_details" class="control-label">Description:</label>
-                                <input type="text" class="form-control" id="txt_food_details" name="txt_food_details" autocomplete="off">
+                                <label for="txt_news_details" class="control-label">Description:</label>
+                                <input type="text" class="form-control" id="txt_news_details" name="txt_food_details" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_news_image" class="control-label">Image:*</label>
+                                <input type="file" class="form-control" id="txt_news_image" name="txt_food_icon" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <div class="col-xl-10">
                                     <div class="form-check">
                                         <label>
-                                            <input name="optionsRadios" id="optionsRadios1" value="option1" checked
+                                            <input name="txt_news_options" id="optionsRadios1" value="Monthly Event" checked
                                                    type="radio">Monthly Event</label>
                                         <label class="col-xl-4">
-                                            <input name="optionsRadios" id="optionsRadios2" value="option2"
+                                            <input name="txt_news_options" id="optionsRadios2" value="Weekly Event"
                                                    type="radio">Weekly Event</label>
                                     </div>
                                 </div>
