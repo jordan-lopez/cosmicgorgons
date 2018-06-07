@@ -23,6 +23,7 @@
                                 <tr>
                                     <th colspan="2">Name</th>
                                     <th>Description</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,6 +38,14 @@
                                     <td>Come join us every Friday for some Tekken 7 Weeklies!
                                     Attempt to defeat our CG players, or take the crown for
                                     that week!</td>
+                                    <td width="100">
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <div class="s-18 icon-pencil"></div>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <div class="s-18 icon-trash-o"></div>
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
