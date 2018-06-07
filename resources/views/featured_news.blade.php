@@ -75,10 +75,10 @@
                             <div class="form-group">
                                 <div class="col-xl-10">
                                     <div class="form-check">
-                                        <label>
+                                        <label class="col-xl-6">
                                             <input name="txt_news_options" id="optionsRadios1" value="Monthly Event" checked
                                                    type="radio">Monthly Event</label>
-                                        <label class="col-xl-4">
+                                        <label class="col-xl-6">
                                             <input name="txt_news_options" id="optionsRadios2" value="Weekly Event"
                                                    type="radio">Weekly Event</label>
                                     </div>
