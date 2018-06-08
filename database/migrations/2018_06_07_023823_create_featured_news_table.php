@@ -15,7 +15,7 @@ class CreateFeaturedNewsTable extends Migration
     {
         Schema::create('featured_news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('title')->unique();
             $table->string('image');
             $table->string('description');
             $table->string('option');

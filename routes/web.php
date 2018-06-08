@@ -14,6 +14,7 @@
 Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
 Route::get('dashboard', 'AdminController@dashboard');
 Route::get('featured-news', 'AdminController@featuredNews');
+Route::post('featured-news/store', 'NewsController@ajaxStore');
 
 Route::get('blog-single', 'PagesController@blogSingle');
 Route::get('blog-list', 'PagesController@blogList');

@@ -10,7 +10,7 @@
             <div class="card no-b">
                 <div class="card-header white b-0 p-3">
                     <div class="card-handle">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_new_food">Add New</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_featured_news_modal">Add New</button>
                     </div>
                     <h4 class="card-title">Events</h4>
                     <small class="card-subtitle mb-2 text-muted">Monthly and weekly events.</small>
@@ -49,6 +49,13 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -57,50 +64,51 @@
     </div>
   </div>
   {{-- modal here --}}
-  <div class="modal fade" id="add_new_food" tabindex="-1" role="dialog" aria-labelledby="addNewFood">
+  <div class="modal fade" id="add_featured_news_modal" tabindex="-1" role="dialog" aria-labelledby="addFeaturedNews">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content no-r ">
             <div class="modal-header">
                 <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
                 <h4 class="modal-title">Add New Event</h4>
             </div>
-            <form action="dashboard2.html ">
-            <div class="modal-body no-p">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="p-40">
-                            <div class="form-group">
-                                <label for="txt_news_name" class="control-label">Name:*</label>
-                                <input type="text" class="form-control" id="txt_news_name" name="txt_food_name" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_news_details" class="control-label">Description:</label>
-                                <input type="text" class="form-control" id="txt_news_details" name="txt_food_details" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_news_image" class="control-label">Image:*</label>
-                                <input type="file" class="form-control" id="txt_news_image" name="txt_food_icon" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xl-10">
-                                    <div class="form-check">
-                                        <label class="col-xl-6">
-                                            <input name="txt_news_options" id="optionsRadios1" value="Monthly Event" checked
-                                                   type="radio">Monthly Event</label>
-                                        <label class="col-xl-6">
-                                            <input name="txt_news_options" id="optionsRadios2" value="Weekly Event"
-                                                   type="radio">Weekly Event</label>
+            <form id="frm-add-event" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                <div class="modal-body no-p">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-40">
+                                <div class="form-group">
+                                    <label for="txt_news_name" class="control-label">Title:*</label>
+                                    <input type="text" class="form-control" id="txt_news_name" name="txt_news_name" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt_news_details" class="control-label">Description:</label>
+                                    <input type="text" class="form-control" id="txt_news_details" name="txt_news_details" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt_news_image" class="control-label">Image:*</label>
+                                    <input type="file" class="form-control" id="txt_news_image" name="txt_news_image" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xl-10">
+                                        <div class="form-check">
+                                            <label class="col-xl-6">
+                                                <input name="txt_news_options" id="optionsRadios1" class="txt_news_options" value="Monthly Event" checked
+                                                       type="radio">Monthly Event</label>
+                                            <label class="col-xl-6">
+                                                <input name="txt_news_options" id="optionsRadios2" class="txt_news_options" value="Weekly Event"
+                                                       type="radio">Weekly Event</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" id="btn-delete-confirm" class="btn btn-primary">Save</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" id="btn-add-news" class="btn btn-primary" value="Save">
+                </div>
             </form>
         </div>
     </div>
