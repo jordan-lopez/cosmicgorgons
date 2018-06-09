@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
+
 class AdminController extends Controller {
 	public function dashboard() {
 		return view('dashboard')->with(array('page' => 'Dashboard'));
@@ -12,6 +14,7 @@ class AdminController extends Controller {
 	}
 
 	public function featuredNews() {
-		return view('featured_news')->with(array('page' => 'Featured News'));
+		$news = News::all();
+		return view('featured_news')->with(array('page' => 'Featured News','news'=>$news));
 	}
 }

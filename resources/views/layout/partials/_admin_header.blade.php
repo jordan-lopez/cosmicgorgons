@@ -10,6 +10,8 @@
     <title>{{ $page }} | Cosmic Gorgons Official Website</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('/css/panel.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/toast-master/css/jquery.toast.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables/jquery.dataTables.min.css') }}">
     <style>
         .loader {
             position: fixed;

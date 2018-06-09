@@ -18,44 +18,18 @@
                 <div class="collapse show" id="salesCard">
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover earning-box">
+                            <table class="table table-hover earning-box" id="tbl-featured-news">
                                 <thead class="bg-light">
                                 <tr>
-                                    <th colspan="2">Name</th>
+                                    <th>Name</th>
+                                    <th></th>
                                     <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="w-10"><span class="round">
-                                        <img src="{{ asset('/img/dummy/u1.png') }}" alt="user"></span>
-                                    </td>
-                                    <td>
-                                        <h6>RageQuit – Tekken 7 Weeklies</h6>
-                                        <small class="text-muted">Monthly Event</small>
-                                    </td>
-                                    <td>Come join us every Friday for some Tekken 7 Weeklies!
-                                    Attempt to defeat our CG players, or take the crown for
-                                    that week!</td>
-                                    <td width="100">
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <div class="s-18 icon-pencil"></div>
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <div class="s-18 icon-trash-o"></div>
-                                        </button>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -83,7 +57,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_details" class="control-label">Description:</label>
-                                    <input type="text" class="form-control" id="txt_news_details" name="txt_news_details" autocomplete="off">
+                                    <textarea class="form-control" rows="3" id="txt_news_details" name="txt_news_details" autocomplete="off"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_image" class="control-label">Image:*</label>
@@ -107,7 +81,87 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" id="btn-add-news" class="btn btn-primary" value="Save">
+                    <button type="submit" id="btn-add-news" class="btn btn-primary"><span id="add-spinner" class="s-15 icon-spinner"> Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit_featured_news_modal" tabindex="-1" role="dialog" aria-labelledby="editFeaturedNews">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content no-r ">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
+                <h4 class="modal-title">Edit Event</h4>
+            </div>
+            <form id="frm-edit-event" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                <input type="hidden" name="hdn_edit_featured_news_id" id="hdn_edit_featured_news_id">
+                <div class="modal-body no-p">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-40">
+                                <div class="form-group">
+                                    <label for="txt_news_name" class="control-label">Title:*</label>
+                                    <input type="text" class="form-control" id="edit_txt_news_name" name="edit_txt_news_name" autocomplete="off" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt_news_details" class="control-label">Description:</label>
+                                    <textarea class="form-control" rows="3" id="edit_txt_news_details" name="edit_txt_news_details" autocomplete="off"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt_news_image" class="control-label">Image:*</label>
+                                    <input type="hidden" name="hdn_edit_image" id="hdn_edit_image">
+                                    <input type="file" class="form-control" id="edit_txt_news_image" name="edit_txt_news_image" autocomplete="off"><br><div class="col-md-6 col-lg-4"><div class="thumbnail" id="image"></div></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xl-10">
+                                        <div class="form-check">
+                                            <label class="col-xl-6">
+                                                <input name="edit_txt_news_options" class="edit_txt_news_options" value="Monthly Event" type="radio">Monthly Event
+                                            </label>
+                                            <label class="col-xl-6">
+                                                <input name="edit_txt_news_options" class="edit_txt_news_options" value="Weekly Event" type="radio">Weekly Event
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btn-edit-news" class="btn btn-primary" style="width: 100px;"><span id="edit-spinner" class="s-15 icon-spinner"> Update</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete_featured_news_modal" tabindex="-1" role="dialog" aria-labelledby="deleteFeaturedNews">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content no-r ">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
+                <h4 class="modal-title">Delete Event</h4>
+            </div>
+            <form id="frm-delete-event" method="post">
+                <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                <input type="hidden" name="hdn_delete_featured_news_id" id="hdn_delete_featured_news_id">
+                <div class="modal-body no-p">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-40" id="event_title">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btn-delete-news" class="btn btn-primary" style="width: 100px;"><span id="delete-spinner" class="s-15 icon-spinner"> Delete</span></button>
                 </div>
             </form>
         </div>
