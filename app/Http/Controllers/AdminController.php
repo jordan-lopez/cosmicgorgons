@@ -10,7 +10,7 @@ class AdminController extends Controller {
 		return view('dashboard')->with(array('page' => 'Dashboard'));
 	}
 
-	public function manageFoodMenu(Request $request) {
+	public function manageFoodMenu() {
 		$data = FoodMenu::all();
 		return view('manage_food_menu')->with(array('page' => 'Manage Menu', 'data' => $data));
 	}
