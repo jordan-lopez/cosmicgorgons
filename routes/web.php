@@ -11,6 +11,9 @@
 |
 */
 // Admin Pages
+Route::post('delete-food-menu', 'ManageMenuController@ajaxDestroy');
+Route::post('update-food-menu', 'ManageMenuController@ajaxUpdate');
+Route::post('create-food-menu', 'ManageMenuController@ajaxStore');
 Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
 Route::get('dashboard', 'AdminController@dashboard');
 Route::get('featured-news', 'AdminController@featuredNews');
