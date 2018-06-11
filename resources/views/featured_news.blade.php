@@ -53,15 +53,18 @@
                             <div class="p-40">
                                 <div class="form-group">
                                     <label for="txt_news_name" class="control-label">Title:*</label>
-                                    <input type="text" class="form-control" id="txt_news_name" name="txt_news_name" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="txt_news_name" name="title" autocomplete="off">
+                                    <p class="error_title alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_details" class="control-label">Description:</label>
-                                    <textarea class="form-control" rows="3" id="txt_news_details" name="txt_news_details" autocomplete="off"></textarea>
+                                    <textarea class="form-control" rows="3" id="txt_news_details" name="description" autocomplete="off"></textarea>
+                                    <p class="error_details alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_image" class="control-label">Image:*</label>
-                                    <input type="file" class="form-control" id="txt_news_image" name="txt_news_image" autocomplete="off" required>
+                                    <input type="file" class="form-control" id="txt_news_image" name="image" autocomplete="off">
+                                    <p class="error_image alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xl-10">
@@ -102,13 +105,15 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="p-40">
-                                <div class="form-group">
+                                <div class="form-group has-error">
                                     <label for="txt_news_name" class="control-label">Title:*</label>
-                                    <input type="text" class="form-control" id="edit_txt_news_name" name="edit_txt_news_name" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="edit_txt_news_name" name="title" autocomplete="off">
+                                    <p class="error_edit_title alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_details" class="control-label">Description:</label>
-                                    <textarea class="form-control" rows="3" id="edit_txt_news_details" name="edit_txt_news_details" autocomplete="off"></textarea>
+                                    <textarea class="form-control" rows="3" id="edit_txt_news_details" name="description" autocomplete="off"></textarea>
+                                    <p class="error_edit_details alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_image" class="control-label">Image:*</label>

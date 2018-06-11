@@ -5,31 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\News;
+use Validator;
 
 class NewsController extends Controller
 {
     //
     public function ajaxStore(Request $request){
-    	
-    	if(Input::file('txt_news_image'))
-	       {
-	           $file = Input::file('txt_news_image');
+
+	    $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:featured_news',
+            'description' => 'required',
+            'image' => 'required',
+        ]);   
+
+        if ($validator->fails()) {
+        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
+        } else {
+        	if(Input::file('image'))
+	       	{
+	           $file = Input::file('image');
 	           $name=time().$file->getClientOriginalName();
 	           $file->move(public_path().'/uploads/featured_news/', $name);
-	       }
+	       	}
+			$news = new News;
 
-		$news = new News;
+			$news->title = $request->title;
+			$news->image = 'uploads/featured_news/'.$name;
+			$news->description = $request->description;
+			$news->option = $request->txt_news_options;
+			$news->updated_at = null;
 
-		$news->title = $request->txt_news_name;
-		$news->image = 'uploads/featured_news/'.$name;
-		$news->description = $request->txt_news_details;
-		$news->option = $request->txt_news_options;
-		$news->updated_at = null;
+			$news->save();
 
-		$news->save();
-
-		return response()->json($name);
-		
+			return response()->json(['success'=>'Added successfully.']);
+		}
+	
 	}
 
 	public function ajaxShow(Request $request){
@@ -69,28 +79,38 @@ class NewsController extends Controller
 	}
 
 	public function ajaxUpdate(Request $request){
+
+		$validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
+        } else {
     	
-    	if(Input::file('edit_txt_news_image'))
-	    {
-	        $file = Input::file('edit_txt_news_image');
-	        $name=time().$file->getClientOriginalName();
-	        $file->move(public_path().'/uploads/featured_news/', $name);
-	        $image = 'uploads/featured_news/'.$name;
-	    }
-	    else {
-	    	$image = $request->hdn_edit_image;
-	    }
+	    	if(Input::file('edit_txt_news_image'))
+		    {
+		        $file = Input::file('edit_txt_news_image');
+		        $name=time().$file->getClientOriginalName();
+		        $file->move(public_path().'/uploads/featured_news/', $name);
+		        $image = 'uploads/featured_news/'.$name;
+		    }
+		    else {
+		    	$image = $request->hdn_edit_image;
+		    }
 
-		$news = News::find ( $request->hdn_edit_featured_news_id );
+			$news = News::find($request->hdn_edit_featured_news_id);
 
-		$news->title = $request->edit_txt_news_name;
-		$news->image = $image;
-		$news->description = $request->edit_txt_news_details;
-		$news->option = $request->edit_txt_news_options;
+			$news->title = $request->title;
+			$news->image = $image;
+			$news->description = $request->description;
+			$news->option = $request->edit_txt_news_options;
 
-		$news->save();
+			$news->save();
 
-		return response()->json($news);
+			return response()->json(['success'=>'Updated successfully.']);
+		}
 		
 	}
 

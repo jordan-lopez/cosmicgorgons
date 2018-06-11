@@ -17,7 +17,7 @@ class CreateFeaturedNewsTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->string('image');
-            $table->string('description');
+            $table->longText('description');
             $table->string('option');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
