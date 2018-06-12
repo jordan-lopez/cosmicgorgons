@@ -67,6 +67,11 @@
                                     <p class="error_image alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
+                                    <label for="txt_news_yt_link" class="control-label">Youtube Link:</label>
+                                    <input type="text" class="form-control" id="txt_news_yt_link" name="youtube_link" autocomplete="off">
+                                    <p class="error_yt_link alert-danger" hidden></p>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-xl-10">
                                         <div class="form-check">
                                             <label class="col-xl-6">
@@ -102,6 +107,7 @@
                 <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                 <input type="hidden" name="hdn_edit_featured_news_id" id="hdn_edit_featured_news_id">
                 <input type="hidden" name="hdn_edit_featured_news_date" id="hdn_edit_featured_news_date">
+                <input type="hidden" name="hdn_edit_featured_news_yt" id="hdn_edit_featured_news_yt">
                 <div class="modal-body no-p">
                     <div class="row">
                         <div class="col-lg-12">
@@ -120,6 +126,11 @@
                                     <label for="txt_news_image" class="control-label">Image:*</label>
                                     <input type="hidden" name="hdn_edit_image" id="hdn_edit_image">
                                     <input type="file" class="form-control" id="edit_txt_news_image" name="edit_txt_news_image" autocomplete="off"><br><div class="col-md-6 col-lg-4"><div class="thumbnail" id="image"></div></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt_news_yt_link" class="control-label">Youtube Link:</label>
+                                    <input type="text" class="form-control" id="edit_txt_news_yt_link" name="edit_youtube_link" autocomplete="off">
+                                    <p class="error_yt_link alert-danger" hidden></p>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xl-10">

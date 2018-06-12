@@ -56,6 +56,10 @@ $(document).ready(function() {
                         document.getElementsByClassName("error_details")[0].removeAttribute("hidden");
                         $('.error_details').text(data.error.description);
                     }
+                    if (data.error.youtube_link) {
+                        document.getElementsByClassName("error_yt_link")[0].removeAttribute("hidden");
+                        $('.error_yt_link').text(data.error.youtube_link);
+                    }
                     if (data.error.image) {
                         document.getElementsByClassName("error_image")[0].removeAttribute("hidden");
                         $('.error_image').text(data.error.image);
@@ -116,11 +120,11 @@ $(document).ready(function() {
                 }
             }, error:function (xhr, error, ajaxOptions, thrownError){
                 $('#edit-spinner').removeClass('icon-spinner');
-                    $('#btn-edit-news span').removeAttr('disabled').text('Update');
-                    $('.error_edit_title').prop('hidden', true);
-                    $('.error_edit_details').prop('hidden', true);
-                    document.getElementsByClassName("error_edit_title")[0].removeAttribute("hidden");
-                    $('.error_edit_title').text('The title has already been taken.');
+                $('#btn-edit-news span').removeAttr('disabled').text('Update');
+                $('.error_edit_title').prop('hidden', true);
+                $('.error_edit_details').prop('hidden', true);
+                document.getElementsByClassName("error_edit_title")[0].removeAttribute("hidden");
+                $('.error_edit_title').text('The title has already been taken.');
                     
             }
         });
@@ -169,13 +173,20 @@ $(document).ready(function() {
         var edit_txt_news_id = $(e.relatedTarget).data('id');
         var edit_txt_news_details = $(e.relatedTarget).data('description');
         var edit_txt_news_image = $(e.relatedTarget).data('image');
+        var edit_txt_news_yt_link = $(e.relatedTarget).data('youtube-link');
         var edit_txt_news_title = $(e.relatedTarget).data('title');
         var edit_txt_news_option = $(e.relatedTarget).data('option');
         $('#frm-edit-event').find('#hdn_edit_featured_news_id').val(edit_txt_news_id);
         $('#frm-edit-event').find('#edit_txt_news_name').val(edit_txt_news_title);
         $('#frm-edit-event').find('#edit_txt_news_details').val(edit_txt_news_details);
         $('#frm-edit-event').find('#hdn_edit_image').val(edit_txt_news_image);
+        $('#frm-edit-event').find('#hdn_edit_featured_news_yt').val(edit_txt_news_yt_link);
         $('#frm-edit-event').find('#image').html('<img src='+edit_txt_news_image+' alt="user">');
+        if (edit_txt_news_yt_link !== '') {
+            $('#frm-edit-event').find('#edit_txt_news_yt_link').val('https://www.youtube.com/watch?v='+edit_txt_news_yt_link);
+        } else {
+            $('#frm-edit-event').find('#edit_txt_news_yt_link').val('');
+        }
         $('input[name=edit_txt_news_options]').val([edit_txt_news_option]);
     });
 

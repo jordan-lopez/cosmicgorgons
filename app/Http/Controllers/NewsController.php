@@ -18,6 +18,21 @@ class NewsController extends Controller
             'image' => 'required',
         ]);   
 
+        function YoutubeID($url)
+	    {
+	        if(strlen($url) > 11)
+	        {
+	            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+	            {
+	                return $match[1];
+	            }
+	            else
+	                return false;
+	        }
+
+	        return $url;
+	    }
+
         if ($validator->fails()) {
         	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
         } else {
@@ -31,6 +46,7 @@ class NewsController extends Controller
 
 			$news->title = $request->title;
 			$news->image = 'uploads/featured_news/'.$name;
+			$news->youtube_link = YoutubeID($request->youtube_link);
 			$news->description = $request->description;
 			$news->option = $request->txt_news_options;
 			$news->updated_at = null;
@@ -58,9 +74,11 @@ class NewsController extends Controller
             $button = '<td><button type="button" class="btn btn-primary btn-sm btn_edit_featured_news" 
                       data-toggle="modal" data-target="#edit_featured_news_modal" data-id="'.$row->id.'
                       " data-image="'.$row->image.'" data-title="'.$row->title.'" data-description="'
-                      .$row->description.'" data-option="'.$row->option.'"><div class="s-18 icon-pencil"></div>
-                      </button>&nbsp;<button type="button" class="btn btn-primary btn-sm" data-toggle=
-                      "modal" data-target="#delete_featured_news_modal" data-id="'.$row->id.'" data-title="'.$row->title.'"><div class="s-18 icon-trash-o"></div></button></td>';
+                      .$row->description.'" data-option="'.$row->option.'" data-youtube-link="'.$row->youtube_link.'"
+                      ><div class="s-18 icon-pencil"></div></button>&nbsp;<button type="button" 
+                      class="btn btn-primary btn-sm" data-toggle= "modal" data-target="#delete_featured_news_modal"
+                      data-id="'.$row->id.'" data-title="'.$row->title.'"><div class="s-18 icon-trash-o"></div></
+                      button></td>';
 
     		$data[] = array(
                     $image,
@@ -87,6 +105,21 @@ class NewsController extends Controller
 	        'description' => 'required',
 	    ]);    
 
+	    function YoutubeID($url)
+	    {
+	        if(strlen($url) > 11)
+	        {
+	            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+	            {
+	                return $match[1];
+	            }
+	            else
+	                return false;
+	        }
+
+	        return $url;
+	    }
+
         if ($validator->fails()) {
         	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
         } else {
@@ -103,6 +136,7 @@ class NewsController extends Controller
 
 			$news->title = $request->title;
 			$news->image = $image;
+			$news->youtube_link = YoutubeID($request->edit_youtube_link);
 			$news->description = $request->description;
 			$news->option = $request->edit_txt_news_options;
 
