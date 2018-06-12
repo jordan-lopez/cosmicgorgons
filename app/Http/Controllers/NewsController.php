@@ -82,8 +82,15 @@ class NewsController extends Controller
 
 		$news = News::find($request->hdn_edit_featured_news_id);
 
-		if ($news->id == $request->hdn_edit_featured_news_id && $news->title == $request->title) {
-			if(Input::file('edit_txt_news_image'))
+		$validator = Validator::make($request->all(), [
+	        'title' => 'required|unique:featured_news,id,'.$request->hdn_edit_featured_news_id.'',
+	        'description' => 'required',
+	    ]);    
+
+        if ($validator->fails()) {
+        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
+        } else {
+        	if(Input::file('edit_txt_news_image'))
 		    {
 		        $file = Input::file('edit_txt_news_image');
 		        $name=time().$file->getClientOriginalName();
@@ -102,15 +109,6 @@ class NewsController extends Controller
 			$news->save();
 
 			return response()->json(['success'=>'Updated successfully.']);
-		} else {
-			$validator = Validator::make($request->all(), [
-	            'title' => 'required|unique:featured_news',
-	            'description' => 'required',
-	        ]);
-
-	        if ($validator->fails()) {
-	        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
-	        } 
 		}
 		
 	}

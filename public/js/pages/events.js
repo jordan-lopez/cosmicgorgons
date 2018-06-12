@@ -115,9 +115,13 @@ $(document).ready(function() {
                     }
                 }
             }, error:function (xhr, error, ajaxOptions, thrownError){
-                alert(xhr.responseText);
                 $('#edit-spinner').removeClass('icon-spinner');
-                $('#btn-edit-news span').removeAttr('disabled').text('Update');
+                    $('#btn-edit-news span').removeAttr('disabled').text('Update');
+                    $('.error_edit_title').prop('hidden', true);
+                    $('.error_edit_details').prop('hidden', true);
+                    document.getElementsByClassName("error_edit_title")[0].removeAttribute("hidden");
+                    $('.error_edit_title').text('The title has already been taken.');
+                    
             }
         });
     });

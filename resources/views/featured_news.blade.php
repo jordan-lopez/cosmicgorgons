@@ -101,6 +101,7 @@
             <form id="frm-edit-event" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                 <input type="hidden" name="hdn_edit_featured_news_id" id="hdn_edit_featured_news_id">
+                <input type="hidden" name="hdn_edit_featured_news_date" id="hdn_edit_featured_news_date">
                 <div class="modal-body no-p">
                     <div class="row">
                         <div class="col-lg-12">
