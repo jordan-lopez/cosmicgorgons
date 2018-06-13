@@ -1,4 +1,12 @@
+var tbl_food_menu;
 $(document).ready(function(){
+	tbl_food_menu = $('#tbl-food-menu').DataTable({
+    'ajax': {
+        url: 'manage-food-menu/show',
+        type: 'GET'
+    },
+  });
+
 	addFoodMenu();
 	editFoodMenu();
 	deleteFoodMenu();
@@ -8,15 +16,28 @@ function addFoodMenu() {
 	$('#btn-add-food-menu').on('click', function(){
 		$('#frm-add-food-menu')[0].reset();
 	})
-
-	$('#frm-add-food-menu').bind('submit').on('submit', function(e){
+	
+	$("#frm-add-food-menu").validate({
+		rules: {
+			txt_food_name: "required",
+			txt_food_price: "required",
+			slct_food_category: "required",
+			txt_food_image: "required"
+		},
+		messages:{
+			txt_food_name: "Please enter the food name.",
+			txt_food_price: "Please enter the food price.",
+			slct_food_category: "Please enter the food category.",
+			txt_food_image: "Please enter the a food image."
+		},
+		submitHandler: function(frm_add_food_menu, e){
 		e.preventDefault();
 		$('#btn-add').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Save');
 		var form = $('#frm-add-food-menu');
 		var data = new FormData($("#frm-add-food-menu")[0]);
 
 		$.ajax({
-				url: 'create-food-menu',
+				url: 'manage-food-menu/store',
 				type: 'POST',
 				data: data,
 				dataType: 'json',
@@ -25,25 +46,7 @@ function addFoodMenu() {
 				success:function(data)
 				{
 					// if (data.success == true) {
-						$('#tbl-food-menu').find('tbody').append('<tr>'
-                                            + '<td class="w-10"><span class="round">'
-                                            + '<img src="'+ data.image +'"></span>'
-                                            + '</td>'
-                                            + '<td>'
-                                            + '<h6>'+ data.name +'</h6>'
-                                            + '</td>'
-                                            + '<td>'+ data.description +'</td>'
-                                            + '<td>&#8369;'+ data.price +'</td>'
-                                            + '<td>'+ data.category +'</td>'
-                                            + '<td>'
-                                            + '<a id="btn-edit-food-menu" class="btn-fab btn-success r5 white-text" data-toggle="modal" data-target="#modal-edit-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'" data-description="'+ data.description +'" data-price="'+ data.price +'" data-category="'+ data.category +'" data-image="'+ data.image +'">'
-                                            + '<i class="icon-edit"></i>'
-                                            + '</a>&nbsp'
-                                            + '<a id="btn-delete-food-menu" class="btn-fab btn-danger r5 white-text" data-toggle="modal" data-target="#modal-delete-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'">'
-                                            + '<i class="icon-trash"></i>'
-                                            + '</a>'
-                                            + '</td>'
-                                        		+ '</tr>');
+      			tbl_food_menu.ajax.reload(null, false);
 
 						$('#frm-add-food-menu')[0].reset();
 						// position_tbl.ajax.reload(null, false);
@@ -81,7 +84,8 @@ function addFoodMenu() {
 				}, error:function (xhr, error, ajaxOptions, thrownError){
 					alert(xhr.responseText);
 				}
-		})
+			})
+		}
 	})
 }
 
@@ -99,81 +103,77 @@ function editFoodMenu() {
 		$('#txt-edit-food-details').val(food_description);
 		$('#txt-edit-food-price').val(food_price);
 		$('#slct-edit-food-category').val(food_category);
+		// $('#txt-edit-food-image').val(food_image);
 	});
 
-	$('#frm-edit-food-menu').on('submit').bind('submit', function(e){
-		e.preventDefault();
-		$('#btn-edit').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Edit');
-		var form = $('#frm-edit-food-menu');
-		var data = new FormData($("#frm-edit-food-menu")[0]);
+	$("#frm-edit-food-menu").validate({
+		rules: {
+			txt_edit_food_name: "required",
+			txt_edit_food_price: "required",
+			slct_edit_food_category: "required",
+			txt_edit_food_image: "required"
+		},
+		messages:{
+			txt_edit_food_name: "Please enter the food name.",
+			txt_edit_food_price: "Please enter the food price.",
+			slct_edit_food_category: "Please enter the food category.",
+			txt_edit_food_image: "Please enter the a food image."
+		},
+		submitHandler: function(frm_edit_food_menu, e){
+			e.preventDefault();
+			$('#btn-edit').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Edit');
+			var form = $('#frm-edit-food-menu');
+			var data = new FormData($("#frm-edit-food-menu")[0]);
 
-		$.ajax({
-				url: 'update-food-menu',
-				type: 'POST',
-				data: data,
-				dataType: 'json',
-				processData: false,
-				contentType: false,
-				success:function(data)
-				{
-					// if (data.success == true) {
-						$('#tbl-food-menu').find('tbody').append('<tr>'
-                                            + '<td class="w-10"><span class="round">'
-                                            + '<img src="'+ data.image +'"></span>'
-                                            + '</td>'
-                                            + '<td>'
-                                            + '<h6>'+ data.name +'</h6>'
-                                            + '</td>'
-                                            + '<td>'+ data.description +'</td>'
-                                            + '<td>&#8369;'+ data.price +'</td>'
-                                            + '<td>'+ data.category +'</td>'
-                                            + '<td>'
-                                            + '<a id="btn-edit-food-menu" class="btn-fab btn-success r5 white-text" data-toggle="modal" data-target="#modal-edit-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'" data-description="'+ data.description +'" data-price="'+ data.price +'" data-category="'+ data.category +'" data-image="'+ data.image +'">'
-                                            + '<i class="icon-edit"></i>'
-                                            + '</a>&nbsp'
-                                          	+ '<a id="btn-delete-food-menu" class="btn-fab btn-danger r5 white-text" data-toggle="modal" data-target="#modal-delete-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'">'
-                                            + '<i class="icon-trash"></i>'
-                                            + '</a>'
-                                            + '</td>'
-                                        		+ '</tr>');
+			$.ajax({
+					url: 'manage-food-menu/update',
+					type: 'POST',
+					data: data,
+					dataType: 'json',
+					processData: false,
+					contentType: false,
+					success:function(data)
+					{
+						// if (data.success == true) {
+	      			tbl_food_menu.ajax.reload(null, false);
+							$('#frm-edit-food-menu')[0].reset();
+							// position_tbl.ajax.reload(null, false);
+							$('#modal-edit-food-menu').modal('hide');
+							$('.modal-backdrop').hide();
+							$('#btn-edit').removeAttr('disabled').html('Edit');
 
-						$('#frm-edit-food-menu')[0].reset();
-						// position_tbl.ajax.reload(null, false);
-						$('#modal-edit-food-menu').modal('hide');
-						$('.modal-backdrop').hide();
-						$('#btn-edit').removeAttr('disabled').html('Edit');
+							// toast popup js
+				    	$.toast({
+				         heading: 'Success!',
+				         text: 'Menu has successfully updated.',
+				         position: 'top-right',
+				         loaderBg: '#fff',
+				         icon: 'success',
+				         hideAfter: 3500,
+				         stack: 6
+				     	});
 
-						// toast popup js
-			    	$.toast({
-			         heading: 'Success!',
-			         text: 'Menu has successfully updated.',
-			         position: 'top-right',
-			         loaderBg: '#fff',
-			         icon: 'success',
-			         hideAfter: 3500,
-			         stack: 6
-			     	});
-
-					// }else{
-					// 	$('#frm-add-food-menu')[0].reset();
-					// 	$('#modal-add-food-menu').modal('hide');
-					// 	$('.modal-backdrop').hide();
-					// 	$('#btn-add').removeAttr('disabled').html('Save');
-					// 	// toast popup js
-			  //   	// $.toast({
-			  //    //    heading: 'Error!',
-			  //    //    text: status.message,
-			  //    //    position: 'top-right',
-			  //    //    loaderBg: '#fff',
-			  //    //    icon: 'error',
-			  //    //    hideAfter: 3500,
-			  //    //    stack: 6
-			  //    // 	});
-					// }
-				}, error:function (xhr, error, ajaxOptions, thrownError){
-					alert(xhr.responseText);
-				}
-		})
+						// }else{
+						// 	$('#frm-add-food-menu')[0].reset();
+						// 	$('#modal-add-food-menu').modal('hide');
+						// 	$('.modal-backdrop').hide();
+						// 	$('#btn-add').removeAttr('disabled').html('Save');
+						// 	// toast popup js
+				  //   	// $.toast({
+				  //    //    heading: 'Error!',
+				  //    //    text: status.message,
+				  //    //    position: 'top-right',
+				  //    //    loaderBg: '#fff',
+				  //    //    icon: 'error',
+				  //    //    hideAfter: 3500,
+				  //    //    stack: 6
+				  //    // 	});
+						// }
+					}, error:function (xhr, error, ajaxOptions, thrownError){
+						alert(xhr.responseText);
+					}
+			})
+		}
 	})
 }
 
@@ -192,7 +192,7 @@ function deleteFoodMenu() {
 		var data = new FormData($("#frm-delete-food-menu")[0]);
 
 		$.ajax({
-				url: 'delete-food-menu',
+				url: 'manage-food-menu/delete',
 				type: 'POST',
 				data: data,
 				dataType: 'json',
@@ -201,25 +201,7 @@ function deleteFoodMenu() {
 				success:function(data)
 				{
 					// if (data.success == true) {
-						$('#tbl-food-menu').find('tbody').append('<tr>'
-                                            + '<td class="w-10"><span class="round">'
-                                            + '<img src="'+ data.image +'"></span>'
-                                            + '</td>'
-                                            + '<td>'
-                                            + '<h6>'+ data.name +'</h6>'
-                                            + '</td>'
-                                            + '<td>'+ data.description +'</td>'
-                                            + '<td>&#8369;'+ data.price +'</td>'
-                                            + '<td>'
-                                            + '<a id="btn-edit-food-menu" class="btn-fab btn-success r5 white-text" data-toggle="modal" data-target="#modal-edit-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'" data-description="'+ data.description +'" data-price="'+ data.price +'" data-image="'+ data.image +'">'
-                                            + '<i class="icon-edit"></i>'
-                                            + '</a>&nbsp'
-                                          	+ '<a id="btn-delete-food-menu" class="btn-fab btn-danger r5 white-text" data-toggle="modal" data-target="#modal-delete-food-menu" data-id="'+ data.id +'" data-name="'+ data.name +'">'
-                                            + '<i class="icon-trash"></i>'
-                                            + '</a>'
-                                            + '</td>'
-                                        		+ '</tr>');
-
+      			tbl_food_menu.ajax.reload(null, false);
 						$('#frm-delete-food-menu')[0].reset();
 						// position_tbl.ajax.reload(null, false);
 						$('#modal-delete-food-menu').modal('hide');

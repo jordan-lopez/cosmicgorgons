@@ -24,7 +24,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-food-menu" id="btn-add-food-menu">Add New</button>
                         </div>
                         <h4 class="card-title">Food Menu</h4>
-                        <small class="card-subtitle mb-2 text-muted">Items purchase by users.</small>
+                        <small class="card-subtitle mb-2 text-muted">Manage the menu and schedule.</small>
                     </div>
                     <div class="collapse show" id="salesCard">
                         <div class="card-body p-0">
@@ -32,7 +32,8 @@
                                 <table class="table table-hover" id="tbl-food-menu">
                                     <thead class="bg-light">
                                         <tr>
-                                            <th colspan="2">Food Name</th>
+                                            <th>Food Name</th>
+                                            <th></th>
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Category</th>
@@ -40,27 +41,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($data as $food)
-                                        <tr>
-                                            <td class="w-10"><span class="round">
-                                                <img src="{{ asset($food->image) }}" alt="user"></span>
-                                            </td>
-                                            <td>
-                                                <h6>{{ $food->name }}</h6>
-                                            </td>
-                                            <td>{{ $food->description }}</td>
-                                            <td>&#8369;{{ number_format($food->price, 2) }}</td>
-                                            <td>{{ $food->category }}</td>
-                                            <td>
-                                                <a id="btn-edit-food-menu" class="btn-fab btn-success r5 white-text" data-id="{{ $food->id }}" data-name="{{ $food->name }}" data-description="{{ $food->description }}" data-price="{{ $food->price }}" data-category="{{ $food->category }}" data-image="{{ $food->image }}" data-toggle="modal" data-target="#modal-edit-food-menu">
-                                                    <i class="icon-edit"></i>
-                                                </a>
-                                                <a id="btn-delete-food-menu" class="btn-fab btn-danger r5 white-text" data-id="{{ $food->id }}" data-name="{{ $food->name }}" data-toggle="modal" data-target="#modal-delete-food-menu">
-                                                    <i class="icon-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                        
                                     </tbody>
                                 </table>
                             </div>
@@ -78,7 +59,7 @@
                     <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
                     <h4 class="modal-title">Add New Menu</h4>
                 </div>
-                <form method="POST" action="{{ url('/create-food-menu') }}" enctype="multipart/form-data" id="frm-add-food-menu">
+                <form method="POST" action="{{ url('/manage-food-menu/store') }}" enctype="multipart/form-data" id="frm-add-food-menu" name="frm_add_food_menu">
                     {{ csrf_field() }}
                     <div class="modal-body no-p">
                         <div class="row">
@@ -86,7 +67,7 @@
                                 <div class="p-40">
                                     <div class="form-group">
                                         <label for="txt-food-name" class="control-label">Food Name:*</label>
-                                        <input type="text" class="form-control" id="txt-food-name" name="txt_food_name" autocomplete="off">
+                                        <input type="text" class="form-control" id="txt-food-name" name="txt_food_name" autocomplete="off" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="txt-food-details" class="control-label">Description:</label>
@@ -94,11 +75,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txt-food-price" class="control-label">Price:*</label>
-                                        <input type="text" class="form-control" id="txt-food-price" name="txt_food_price" autocomplete="off">
+                                        <input type="text" class="form-control" id="txt-food-price" name="txt_food_price" autocomplete="off" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="slct-food-category" class="control-label">Category*</label>
-                                        <select class="form-control" id="slct-food-category" name="slct_food_category">
+                                        <select class="form-control" id="slct-food-category" name="slct_food_category" required>
                                             <option selected="selected"></option>
                                             <option value="Snack">Snack</option>
                                             <option value="Rice Meal">Rice Meal</option>
@@ -107,7 +88,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txt-food-image" class="control-label">Image:*</label>
-                                        <input type="file" class="form-control" id="txt-food-image" name="txt_food_image" autocomplete="off">
+                                        <input type="file" class="form-control" id="txt-food-image" name="txt_food_image" autocomplete="off" required>
                                         {{-- <div class="dropzone">
                                             <div class="dz-message">
                                                 <div class="col-xs-8">
@@ -137,7 +118,7 @@
                     <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
                     <h4 class="modal-title">Edit Menu</h4>
                 </div>
-                <form method="POST" action="{{ url('/update-food-menu') }}" enctype="multipart/form-data" id="frm-edit-food-menu">
+                <form method="POST" action="{{ url('/manage-food-menu/update') }}" enctype="multipart/form-data" id="frm-edit-food-menu" name="frm_edit_food_menu">
                     {{ csrf_field() }}
                     <div class="modal-body no-p">
                         <div class="row">
@@ -197,7 +178,7 @@
                     <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
                     <h4 class="modal-title">Delete Menu</h4>
                 </div>
-                <form method="POST" action="{{ url('/delete-food-menu') }}" enctype="multipart/form-data" id="frm-delete-food-menu">
+                <form method="POST" action="{{ url('/manage-food-menu/delete') }}" enctype="multipart/form-data" id="frm-delete-food-menu">
                     {{ csrf_field() }}
                     <div class="modal-body no-p">
                         <div class="row">

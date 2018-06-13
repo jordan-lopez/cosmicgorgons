@@ -4,11 +4,49 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use App\Http\Requests;
 use App\FoodMenu;
 
 class ManageMenuController extends Controller
 { 
+	public function ajaxShow(Request $request) {
+		$food_menu = FoodMenu::all();
+		$data = array();
+
+  	foreach($food_menu as $row) {
+			$image =	'<td class="w-10"><span class="round">
+		              <img src="'.$row->image.'" alt="user"></span>
+		            </td>';
+      $name = 	'<td>
+	                <h6>'.$row->name.'</h6>
+	             	</td>';
+      $description = '<td>'.$row->description.'</td>';
+      $price =	'<td>&#8369;'.number_format($row->price, 2).'</td>';
+      $category = '<td>'.$row->category.'</td>';
+      $button = '<td>
+                    <a id="btn-edit-food-menu" class="btn-fab btn-success r5 white-text" data-id="'. $row->id.'" data-name="'.$row->name.'" data-description="'.$row->description.'" data-price="'.$row->price.'" data-category="'.$row->category.'" data-image="'.$row->image.'" data-toggle="modal" data-target="#modal-edit-food-menu">
+                        <i class="icon-edit"></i>
+                    </a>
+                    <a id="btn-delete-food-menu" class="btn-fab btn-danger r5 white-text" data-id="'.$row->id.'" data-name="'.$row->name.'" data-toggle="modal" data-target="#modal-delete-food-menu">
+                        <i class="icon-trash"></i>
+                    </a>
+                </td>';
+
+  		$data[] = array(
+                  $image,
+                  $name,
+                  $description,
+                  $price,
+                  $category,
+                  $button
+      );
+  	}
+
+  	$output = array(
+      "data" => $data
+    );
+
+		return response()->json($output);
+	}
 
 	public function ajaxStore(Request $request) {
 		if(Input::file('txt_food_image'))
