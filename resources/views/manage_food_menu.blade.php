@@ -2,16 +2,26 @@
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('/plugins/dropzone-master/dist/dropzone.css') }}">
-{{-- <style type="text/css">
-    .dropzone {
+<style type="text/css">
+    /* .dropzone {
         border: 2px dashed #0087F7;
         background: white;
         border-radius: 5px;
         min-height: 100px;
         padding: 90px 0;
         vertical-align: baseline;
+    } */
+    input.my-error-class, select.my-error-class {
+        border-color:#FF0000;  /* red */
     }
-</style> --}}
+
+    label.my-error-class {
+        color:#FF0000;  /* red */
+    }
+    label.my-valid-class {
+        color:#00CC00; /* green */
+    }
+</style>
 @endsection
 @section('content')
 <div class="content-wrapper animatedParent animateOnce">

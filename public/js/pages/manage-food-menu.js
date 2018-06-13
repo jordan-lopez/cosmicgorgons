@@ -1,4 +1,7 @@
 var tbl_food_menu;
+var add_form_validate;
+var edit_form_validate;
+
 $(document).ready(function(){
 	tbl_food_menu = $('#tbl-food-menu').DataTable({
     'ajax': {
@@ -15,9 +18,15 @@ $(document).ready(function(){
 function addFoodMenu() {
 	$('#btn-add-food-menu').on('click', function(){
 		$('#frm-add-food-menu')[0].reset();
+		add_form_validate.resetForm();
+		$('input').removeClass('my-error-class');
+		$('select').removeClass('my-error-class');
 	})
 	
-	$("#frm-add-food-menu").validate({
+	add_form_validate = $("#frm-add-food-menu").validate({
+		errorClass: "my-error-class",
+   	validClass: "my-valid-class",
+
 		rules: {
 			txt_food_name: "required",
 			txt_food_price: {
@@ -97,6 +106,10 @@ function addFoodMenu() {
 
 function editFoodMenu() {
 	$(document).on('click', '#btn-edit-food-menu', function(){
+		edit_form_validate.resetForm();
+		$('input').removeClass('my-error-class');
+		$('select').removeClass('my-error-class');
+
 		var food_id = $(this).data('id');
 		var food_name = $(this).data('name');
 		var food_description = $(this).data('description');
@@ -112,8 +125,11 @@ function editFoodMenu() {
 		// $('#txt-edit-food-image').val(food_image);
 	});
 
-	$("#frm-edit-food-menu").validate({
-		rules: {
+	edit_form_validate = $("#frm-edit-food-menu").validate({
+		errorClass: "my-error-class",
+   	validClass: "my-valid-class",
+   	
+   	rules: {
 			txt_edit_food_name: "required",
 			txt_edit_food_price: {
 				required: true,
