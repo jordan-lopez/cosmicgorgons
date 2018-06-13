@@ -20,13 +20,19 @@ function addFoodMenu() {
 	$("#frm-add-food-menu").validate({
 		rules: {
 			txt_food_name: "required",
-			txt_food_price: "required",
+			txt_food_price: {
+				required: true,
+				number: true
+			},
 			slct_food_category: "required",
 			txt_food_image: "required"
 		},
 		messages:{
 			txt_food_name: "Please enter the food name.",
-			txt_food_price: "Please enter the food price.",
+			txt_food_price: {
+				required: "Please enter the food price.",
+				number: "Please enter a valid number."
+			},
 			slct_food_category: "Please enter the food category.",
 			txt_food_image: "Please enter the a food image."
 		},
@@ -109,13 +115,19 @@ function editFoodMenu() {
 	$("#frm-edit-food-menu").validate({
 		rules: {
 			txt_edit_food_name: "required",
-			txt_edit_food_price: "required",
+			txt_edit_food_price: {
+				required: true,
+				number: true
+			},
 			slct_edit_food_category: "required",
 			txt_edit_food_image: "required"
 		},
 		messages:{
 			txt_edit_food_name: "Please enter the food name.",
-			txt_edit_food_price: "Please enter the food price.",
+			txt_edit_food_price: {
+				required: "Please enter the food price.",
+				number: "Please enter a valid number."
+			},
 			slct_edit_food_category: "Please enter the food category.",
 			txt_edit_food_image: "Please enter the a food image."
 		},
