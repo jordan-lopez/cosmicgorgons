@@ -37,7 +37,7 @@ function addDailyScheduleAndPromo() {
 		},
 		submitHandler: function(frm_add_schedule_promo, e){
 			e.preventDefault();
-			$('#btn-add').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Save');
+			$('#btn-add').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Saving');
 			var form = $('#frm-add-schedule-promo');
 			var data = new FormData($("#frm-add-schedule-promo")[0]);
 
@@ -103,7 +103,7 @@ function editDailyScheduleAndPromo() {
 		},
 		submitHandler: function(frm_edit_schedule_promo, e){
 			e.preventDefault();
-			$('#btn-edit').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Edit');
+			$('#btn-edit').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Editing');
 			var form = $('#frm-edit-schedule-promo');
 			var data = new FormData($("#frm-edit-schedule-promo")[0]);
 
@@ -151,7 +151,7 @@ function deleteDailyScheduleAndPromo() {
 
 	$('#frm-delete-schedule-promo').on('submit').bind('submit', function(e){
 		e.preventDefault();
-		$('#btn-delete').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Delete');
+		$('#btn-delete').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i> Deleting');
 		var form = $('#frm-delete-schedule-promo');
 		var data = new FormData($("#frm-delete-schedule-promo")[0]);
 
