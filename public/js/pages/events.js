@@ -32,6 +32,11 @@ $(document).ready(function() {
                     $('#frm-add-event').trigger('reset');
                     $('#btn-add-news span').removeAttr('disabled').text('Save');
                     $('#add-spinner').removeClass('icon-spinner');
+                    $('#txt_news_name').removeClass('border border-danger');
+                    $('#txt_news_details').removeClass('border border-danger');
+                    $('#txt_news_yt_link').removeClass('border border-danger');
+                    $('#txt_news_image').removeClass('border border-danger');
+                    $('.text-danger').text('');
 
                     $.toast({
                         heading: 'Success',
@@ -44,6 +49,10 @@ $(document).ready(function() {
                 }else{
                     $('#btn-add-news span').removeAttr('disabled').text('Save');
                     $('#add-spinner').removeClass('icon-spinner');
+                    $('#txt_news_name').removeClass('border border-danger');
+                    $('#txt_news_details').removeClass('border border-danger');
+                    $('#txt_news_yt_link').removeClass('border border-danger');
+                    $('#txt_news_image').removeClass('border border-danger');
                     $('.error_title').prop('hidden', true);
                     $('.error_details').prop('hidden', true);
                     $('.error_image').prop('hidden', true);
@@ -51,18 +60,22 @@ $(document).ready(function() {
                     if (data.error.title) {
                         document.getElementsByClassName("error_title")[0].removeAttribute("hidden");
                         $('.error_title').text(data.error.title);
+                        $('#txt_news_name').addClass('border border-danger');
                     }
                     if (data.error.description) {
                         document.getElementsByClassName("error_details")[0].removeAttribute("hidden");
                         $('.error_details').text(data.error.description);
+                        $('#txt_news_details').addClass('border border-danger');
                     }
                     if (data.error.youtube_link) {
                         document.getElementsByClassName("error_yt_link")[0].removeAttribute("hidden");
                         $('.error_yt_link').text(data.error.youtube_link);
+                        $('#txt_news_yt_link').addClass('border border-danger');
                     }
                     if (data.error.image) {
                         document.getElementsByClassName("error_image")[0].removeAttribute("hidden");
                         $('.error_image').text(data.error.image);
+                        $('#txt_news_image').addClass('border border-danger');
                     }
                 }
             }, error:function (xhr, error, ajaxOptions, thrownError){
@@ -94,6 +107,9 @@ $(document).ready(function() {
                     $('#frm-edit-event').trigger('reset');
                     $('#btn-edit-news span').removeAttr('disabled').text('Update');
                     $('#edit-spinner').removeClass('icon-spinner');
+                    $('#edit_txt_news_name').removeClass('border border-danger');
+                    $('#edit_txt_news_details').removeClass('border border-danger');
+                    $('.text-danger').text('');
 
                     $.toast({
                         heading: 'Success',
@@ -105,6 +121,8 @@ $(document).ready(function() {
                     });
                 }else{
                     $('#edit-spinner').removeClass('icon-spinner');
+                    $('#edit_txt_news_name').removeClass('border border-danger');
+                    $('#edit_txt_news_details').removeClass('border border-danger');
                     $('#btn-edit-news span').removeAttr('disabled').text('Update');
                     $('.error_edit_title').prop('hidden', true);
                     $('.error_edit_details').prop('hidden', true);
@@ -112,10 +130,12 @@ $(document).ready(function() {
                     if (data.error.title) {
                         document.getElementsByClassName("error_edit_title")[0].removeAttribute("hidden");
                         $('.error_edit_title').text(data.error.title);
+                        $('#edit_txt_news_name').addClass('border border-danger');
                     }
                     if (data.error.description) {
                         document.getElementsByClassName("error_edit_details")[0].removeAttribute("hidden");
                         $('.error_edit_details').text(data.error.description);
+                        $('#edit_txt_news_details').addClass('border border-danger');
                     }
                 }
             }, error:function (xhr, error, ajaxOptions, thrownError){
@@ -125,6 +145,7 @@ $(document).ready(function() {
                 $('.error_edit_details').prop('hidden', true);
                 document.getElementsByClassName("error_edit_title")[0].removeAttribute("hidden");
                 $('.error_edit_title').text('The title has already been taken.');
+                $('#edit_txt_news_name').addClass('border border-danger');
                     
             }
         });
@@ -176,6 +197,8 @@ $(document).ready(function() {
         var edit_txt_news_yt_link = $(e.relatedTarget).data('youtube-link');
         var edit_txt_news_title = $(e.relatedTarget).data('title');
         var edit_txt_news_option = $(e.relatedTarget).data('option');
+        $('#edit_txt_news_name').removeClass('border border-danger');
+        $('#edit_txt_news_details').removeClass('border border-danger');
         $('#frm-edit-event').find('#hdn_edit_featured_news_id').val(edit_txt_news_id);
         $('#frm-edit-event').find('#edit_txt_news_name').val(edit_txt_news_title);
         $('#frm-edit-event').find('#edit_txt_news_details').val(edit_txt_news_details);
