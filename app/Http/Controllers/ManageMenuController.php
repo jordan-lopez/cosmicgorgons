@@ -97,4 +97,10 @@ class ManageMenuController extends Controller
 		$food_menu->delete();
     return response()->json($food_menu);
 	}
+
+	public function ajaxShowFoodMenu(Request $request) {
+		$food_menu = FoodMenu::all();
+
+		return response()->json($food_menu);
+	}
 }

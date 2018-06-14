@@ -11,6 +11,7 @@
 |
 */
 // Admin Pages
+Route::get('food-menu-sched/show', 'ManageMenuController@ajaxShowFoodMenu');
 Route::get('manage-food-menu/show', 'ManageMenuController@ajaxShow');
 Route::post('manage-food-menu/delete', 'ManageMenuController@ajaxDestroy');
 Route::post('manage-food-menu/update', 'ManageMenuController@ajaxUpdate');

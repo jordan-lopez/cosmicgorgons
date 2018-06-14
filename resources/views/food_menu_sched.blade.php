@@ -34,8 +34,8 @@
 		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		        <div class="p-food-menu-category">
 		          <h2 class="p-food-menu__heading">SNACKS</h2>
-		          <ul class="p-food-menu__list">
-		            <li>
+		          <ul class="p-food-menu__list" id="snack-section">
+		            {{-- <li>
 		              <img src="{{ asset('/img/food menu icons/cheese-sticks.png') }}" class="p-food-menu-image">
 		              <h2 class="p-food-menu__list--name">cheese sticks</h2>
 		              <p class="p-food-menu__list--ingredients"></p>
@@ -69,7 +69,7 @@
 		              <p class="p-food-menu__list--ingredients"></p>
 		              <h2 class="p-food-menu__list--price">180.00php</h2>
 		              <div class="clearfix"></div>
-		            </li>
+		            </li> --}}
 		          </ul>
 		        </div>
 		      </div>
@@ -81,8 +81,8 @@
 		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		        <div class="p-food-menu-category">
 		          <h2 class="p-food-menu__heading">RICE MEALS</h2>
-		          <ul class="p-food-menu__list">
-		            <li>
+		          <ul class="p-food-menu__list" id="rice-meal-section">
+		            {{-- <li>
 		              <img src="{{ asset('img/food menu icons/cahmbow-meal.png') }}" class="p-food-menu-image">
 		              <h2 class="p-food-menu__list--name">cahmbow meal</h2>
 		              <p class="p-food-menu__list--ingredients">spam + nuggets + rice</p>
@@ -109,7 +109,7 @@
 		              <p class="p-food-menu__list--ingredients">bacon with rice</p>
 		              <h2 class="p-food-menu__list--price">135.00php</h2>
 		              <div class="clearfix"></div>
-		            </li>
+		            </li> --}}
 		          </ul>
 		        </div>
 		      </div>
@@ -121,8 +121,8 @@
 		      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		        <div class="p-food-menu-category">
 		          <h2 class="p-food-menu__heading">DRINKS</h2>
-		          <ul class="p-food-menu__list">
-		            <li>
+		          <ul class="p-food-menu__list" id="drink-section">
+		            {{-- <li>
 		              <img src="{{ asset('img/food menu icons/float.png') }}" class="p-food-menu-image">
 		              <h2 class="p-food-menu__list--name">float</h2>
 		              <p class="p-food-menu__list--ingredients">coke, mtn dew, mug</p>
@@ -143,7 +143,7 @@
 		              <h2 class="p-food-menu__list--price">35.00php</h2>
 		              <div class="clearfix"></div>
 		            </li>
-		          </ul>
+		          </ul> --}}
 		        </div>
 		      </div>
 		    </div>
@@ -204,4 +204,5 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('js/pages/food_menu_schedule.js') }}"></script>
 @endsection

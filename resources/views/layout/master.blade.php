@@ -7,7 +7,7 @@
 
 	@include('layout.partials._footer')
 	@include('layout.partials._scripts')
+	
 	@yield('scripts')
-
 </body>
 </html>
