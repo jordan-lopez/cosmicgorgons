@@ -34,7 +34,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-food-menu" id="btn-add-food-menu">Add New</button>
                         </div>
                         <h4 class="card-title">Food Menu</h4>
-                        <small class="card-subtitle mb-2 text-muted">Manage the menu and schedule.</small>
+                        <small class="card-subtitle mb-2 text-muted">Manage the daily menu.</small>
                     </div>
                     <div class="collapse show" id="salesCard">
                         <div class="card-body p-0">
@@ -216,5 +216,5 @@
 @section('scripts')
 <script src="{{ asset('/plugins/dropzone-master/dist/dropzone.js') }}"></script>
 <script src="{{ asset('/plugins/jquery-validation/dist/jquery.validate.js') }}"></script>
-<script src="{{ asset('js/pages/manage-food-menu.js') }}"></script>
+<script src="{{ asset('js/pages/manage_food_menu.js') }}"></script>
 @endsection

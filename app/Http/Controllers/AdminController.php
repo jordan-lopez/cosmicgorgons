@@ -19,4 +19,8 @@ class AdminController extends Controller {
 		$news = News::all();
 		return view('featured_news')->with(array('page' => 'Featured News','news'=>$news));
 	}
+
+	public function manageDailySchedule() {
+		return view('manage_daily_schedule')->with(array('page' => 'Manage Daily Schedule & Promo'));
+	}
 }

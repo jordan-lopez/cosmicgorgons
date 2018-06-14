@@ -11,18 +11,27 @@
 |
 */
 // Admin Pages
+Route::get('food-menu-sched/show-daily-sched-promo', 'DailyScheduleAndPromoController@ajaxShowDailySchedulePromo');
+Route::get('manage-daily-schedule-and-promo/show', 'DailyScheduleAndPromoController@ajaxShow');
+Route::post('manage-daily-schedule-and-promo/delete', 'DailyScheduleAndPromoController@ajaxDestroy');
+Route::post('manage-daily-schedule-and-promo/update', 'DailyScheduleAndPromoController@ajaxUpdate');
+Route::post('manage-daily-schedule-and-promo/store', 'DailyScheduleAndPromoController@ajaxStore');
+Route::get('manage-daily-schedule-and-promo', 'AdminController@manageDailySchedule');
+
 Route::get('food-menu-sched/show', 'ManageMenuController@ajaxShowFoodMenu');
 Route::get('manage-food-menu/show', 'ManageMenuController@ajaxShow');
 Route::post('manage-food-menu/delete', 'ManageMenuController@ajaxDestroy');
 Route::post('manage-food-menu/update', 'ManageMenuController@ajaxUpdate');
 Route::post('manage-food-menu/store', 'ManageMenuController@ajaxStore');
 Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
-Route::get('dashboard', 'AdminController@dashboard');
+
 Route::get('featured-news', 'AdminController@featuredNews');
 Route::post('featured-news/store', 'NewsController@ajaxStore');
 Route::get('featured-news/show', 'NewsController@ajaxShow');
 Route::post('featured-news/update', 'NewsController@ajaxUpdate');
 Route::post('featured-news/delete', 'NewsController@ajaxDelete');
+
+Route::get('dashboard', 'AdminController@dashboard');
 
 Route::get('blog-single', 'PagesController@blogSingle');
 Route::get('blog-list', 'PagesController@blogList');

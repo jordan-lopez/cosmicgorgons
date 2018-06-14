@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	showFoodMenu();
+	showDailySchedule()
 })
 
 function showFoodMenu() {
@@ -46,6 +47,23 @@ function showFoodMenu() {
 			  else{
 
 			  }
+			}
+		}
+	})
+}
+
+function showDailySchedule() {
+	$.ajax({
+		url: 'food-menu-sched/show-daily-sched-promo',
+		method: 'GET',
+		dataType: "json",
+		success:function(data){
+			for (var i = 0, len = data.length; i < len; i++) {
+			  $('#daily-schedule-section').append('<li class="p-daily-schedule__card">'
+		              + '<h2 class="p-daily-schedule__heading">'+ data[i].day +'</h2>'
+		              + '<hr>'
+		              + '<p class="p-daily-schedule_paragraph">'+ data[i].event_promo +'</p>'
+		            + '</li>');
 			}
 		}
 	})
