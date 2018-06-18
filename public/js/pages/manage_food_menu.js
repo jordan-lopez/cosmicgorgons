@@ -37,13 +37,13 @@ function addFoodMenu() {
 			txt_food_image: "required"
 		},
 		messages:{
-			txt_food_name: "Please enter the food name.",
+			txt_food_name: "Please input the food name.",
 			txt_food_price: {
-				required: "Please enter the food price.",
-				number: "Please enter a valid number."
+				required: "Please input the food price.",
+				number: "Please input a valid number."
 			},
-			slct_food_category: "Please enter the food category.",
-			txt_food_image: "Please enter the food image."
+			slct_food_category: "Please input the food category.",
+			txt_food_image: "Please input the food image."
 		},
 		submitHandler: function(frm_add_food_menu, e){
 		e.preventDefault();
@@ -139,13 +139,13 @@ function editFoodMenu() {
 			txt_edit_food_image: "required"
 		},
 		messages:{
-			txt_edit_food_name: "Please enter the food name.",
+			txt_edit_food_name: "Please input the food name.",
 			txt_edit_food_price: {
-				required: "Please enter the food price.",
-				number: "Please enter a valid number."
+				required: "Please input the food price.",
+				number: "Please input a valid number."
 			},
-			slct_edit_food_category: "Please enter the food category.",
-			txt_edit_food_image: "Please enter the food image."
+			slct_edit_food_category: "Please input the food category.",
+			txt_edit_food_image: "Please input the food image."
 		},
 		submitHandler: function(frm_edit_food_menu, e){
 			e.preventDefault();

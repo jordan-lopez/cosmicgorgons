@@ -50,11 +50,11 @@ class ManageMenuController extends Controller
 
 	public function ajaxStore(Request $request) {
 		if(Input::file('txt_food_image'))
-	       {
-	          $file = Input::file('txt_food_image');
-	          $name= time().$file->getClientOriginalName();
-	          $file->move(public_path().'/uploads/food_menus/', $name);
-	       }
+    {
+      $file = Input::file('txt_food_image');
+      $name= time().$file->getClientOriginalName();
+      $file->move(public_path().'/uploads/food_menus/', $name);
+    }
 
 		$food_menu = new FoodMenu;
 
