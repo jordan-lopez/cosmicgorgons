@@ -23,4 +23,12 @@ class AdminController extends Controller {
 	public function manageDailySchedule() {
 		return view('manage_daily_schedule')->with(array('page' => 'Manage Daily Schedule & Promo'));
 	}
+
+	public function blog() {
+		return view('blog')->with(array('page' => 'Blog'));
+	}
+
+	public function createBlog() {
+		return view('create-blog')->with(array('page' => 'Create Blog'));
+	}
 }

@@ -25,6 +25,11 @@ Route::post('manage-food-menu/update', 'ManageMenuController@ajaxUpdate');
 Route::post('manage-food-menu/store', 'ManageMenuController@ajaxStore');
 Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
 
+Route::get('blog-show', 'BlogController@ajaxShow');
+Route::get('blog', 'AdminController@blog');
+Route::get('blog-create', 'AdminController@createBlog');
+Route::post('create-blog', 'BlogController@create');
+
 Route::get('featured-news', 'AdminController@featuredNews');
 Route::post('featured-news/store', 'NewsController@ajaxStore');
 Route::get('featured-news/show', 'NewsController@ajaxShow');

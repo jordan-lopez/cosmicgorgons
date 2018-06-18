@@ -12,12 +12,6 @@ class NewsController extends Controller
     //
     public function ajaxStore(Request $request){
 
-	    $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:featured_news',
-            'description' => 'required',
-            'image' => 'required',
-        ]);   
-
         function YoutubeID($url)
 	    {
 	        if(strlen($url) > 11)
@@ -33,29 +27,25 @@ class NewsController extends Controller
 	        return $url;
 	    }
 
-        if ($validator->fails()) {
-        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
-        } else {
-        	if(Input::file('image'))
-	       	{
-	           $file = Input::file('image');
-	           $name=time().$file->getClientOriginalName();
-	           $file->move(public_path().'/uploads/featured_news/', $name);
-	       	}
-			$news = new News;
+        if(Input::file('image'))
+	       {
+	          $file = Input::file('image');
+	          $name=time().$file->getClientOriginalName();
+	          $file->move(public_path().'/uploads/featured_news/', $name);
+	       }
 
-			$news->title = $request->title;
-			$news->image = 'uploads/featured_news/'.$name;
-			$news->youtube_link = YoutubeID($request->youtube_link);
-			$news->description = $request->description;
-			$news->option = $request->txt_news_options;
-			$news->updated_at = null;
+		$news = new News;
+		$news->title = $request->title;
+		$news->image = 'uploads/featured_news/'.$name;
+		$news->youtube_link = YoutubeID($request->youtube_link);
+		$news->description = $request->description;
+		$news->option = $request->txt_news_options;
+		$news->updated_at = null;
 
-			$news->save();
+		$news->save();
 
-			return response()->json(['success'=>'Added successfully.']);
-		}
-	
+		return response()->json(['success'=>'Added successfully.']);
+		
 	}
 
 	public function ajaxShow(Request $request){
@@ -98,12 +88,7 @@ class NewsController extends Controller
 
 	public function ajaxUpdate(Request $request){
 
-		$news = News::find($request->hdn_edit_featured_news_id);
-
-		$validator = Validator::make($request->all(), [
-	        'title' => 'required|unique:featured_news,id,'.$request->hdn_edit_featured_news_id.'',
-	        'description' => 'required',
-	    ]);    
+		$news = News::find($request->hdn_edit_featured_news_id);  
 
 	    function YoutubeID($url)
 	    {
@@ -120,30 +105,26 @@ class NewsController extends Controller
 	        return $url;
 	    }
 
-        if ($validator->fails()) {
-        	return response()->json(['error'=>$validator->getMessageBag()->toArray()]);
-        } else {
-        	if(Input::file('edit_txt_news_image'))
-		    {
-		        $file = Input::file('edit_txt_news_image');
-		        $name=time().$file->getClientOriginalName();
-		        $file->move(public_path().'/uploads/featured_news/', $name);
-		        $image = 'uploads/featured_news/'.$name;
-		    }
-		    else {
-		    	$image = $request->hdn_edit_image;
-		    }
+        if(Input::file('edit_txt_news_image'))
+		   {
+		       $file = Input::file('edit_txt_news_image');
+		       $name=time().$file->getClientOriginalName();
+		       $file->move(public_path().'/uploads/featured_news/', $name);
+		       $image = 'uploads/featured_news/'.$name;
+		   }
+		   else {
+		    $image = $request->hdn_edit_image;
+		   }
 
-			$news->title = $request->title;
-			$news->image = $image;
-			$news->youtube_link = YoutubeID($request->edit_youtube_link);
-			$news->description = $request->description;
-			$news->option = $request->edit_txt_news_options;
+		$news->title = $request->title;
+		$news->image = $image;
+		$news->youtube_link = YoutubeID($request->edit_youtube_link);
+		$news->description = $request->description;
+		$news->option = $request->edit_txt_news_options;
 
-			$news->save();
+		$news->save();
 
-			return response()->json(['success'=>'Updated successfully.']);
-		}
+		return response()->json(['success'=>'Updated successfully.']);
 		
 	}
 

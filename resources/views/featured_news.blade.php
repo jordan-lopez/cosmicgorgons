@@ -1,6 +1,12 @@
 @extends('layout.admin_master')
 
 @section('stylesheets')
+<style type="text/css">
+    .error {
+        color: red !important;
+        border-color: red !important;
+    }
+</style>
 @endsection
 @section('content')
 <div class="content-wrapper animatedParent animateOnce">
@@ -45,7 +51,7 @@
                 <a href="#" data-dismiss="modal" aria-label="Close" class="paper-nav-toggle active"><i></i></a>
                 <h4 class="modal-title">Add New Event</h4>
             </div>
-            <form id="frm-add-event" method="post" enctype="multipart/form-data">
+            <form id="frm-add-event" method="post" enctype="multipart/form-data" name="frm_add_event">
                 <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                 <div class="modal-body no-p">
                     <div class="row">
@@ -186,4 +192,6 @@
 </div>
 @endsection
 @section('scripts')
+<script src="{{ asset('/js/pages/events.js') }}"></script>
+<script src="{{ asset('/plugins/jquery-validation/dist/jquery.validate.js') }}"></script>
 @endsection
