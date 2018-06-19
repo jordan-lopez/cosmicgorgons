@@ -22,74 +22,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="blog-posts col-md-8">
+					@foreach ($blogs as $blog)
 	                <div class="blog-box">
 						<div class="blog-top-desc">
 							<div class="blog-date">
-								20 july 2017
+								{{ date('d M Y', $blog->created_at->timestamp) }}
 							</div>
-							<h4>Helping kids Grow up Stronger</h4>
+							<h4>{{ $blog->title }}</h4>
 							<i class="fa fa-user-o"></i> <strong>Admin</strong>
 							<i class="fa fa-commenting-o"></i> <strong>10 Comments</strong>
 						</div>
-						<img class="img-responsive" src="{{ asset('/img/blog/img-4.jpg') }}" alt="">
+						<img class="img-responsive" src="{{ $blog->image }}" alt="">
 						<div class="blog-btm-desc">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, necessitatibus odio dignissimos nostrum unde iure veniam.</p>
-							<a href="#" class="btn btn-min btn-solid"> Read More  <i class="fa fa-arrow-right"></i> </a>
+							{!! $blog->content !!}
+							<a href="/blog/{{ $blog->slug }}" class="btn btn-min btn-solid"> Read More  <i class="fa fa-arrow-right"></i> </a>
 						</div>
 					</div>
-					
-	                <div class="blog-box blog-post">
-						<div class="blog-top-desc">
-							<div class="blog-date">
-								20 july 2017
-							</div>
-							<h4>Helping kids Grow up Stronger</h4>
-							<i class="fa fa-user-o"></i> <strong>Admin</strong>
-							<i class="fa fa-commenting-o"></i> <strong>10 Comments</strong>
-						</div>
-						<div class="blog-post">
-							<div id="post-slider" class="owl-carousel owl-theme owl-transitions">
-								<div class="item img-wrapper">
-									<img class="img-responsive" src="{{ asset('/img/blog/img-5.jpg') }}" alt="">
-								</div>
-								<div class="item img-wrapper">
-									<img  class="img-responsive" src="{{ asset('/img/blog/img-6.jpg') }}" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="blog-btm-desc">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, necessitatibus odio dignissimos nostrum unde iure veniam.</p>
-							<a href="#" class="btn btn-min btn-solid"> Read More  <i class="fa fa-arrow-right"></i> </a>
-						</div>
-					</div>
-					
-	                <div class="blog-box">
-						<div class="blog-top-desc">
-							<div class="blog-date">
-								20 july 2017
-							</div>
-							<h4>Helping kids Grow up Stronger</h4>
-							<i class="fa fa-user-o"></i> <strong>Admin</strong>
-							<i class="fa fa-commenting-o"></i> <strong>10 Comments</strong>
-						</div>
-						<img class="img-responsive" src="{{ asset('/img/blog/img-6.jpg') }}" alt="">
-						<div class="blog-btm-desc">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nam, necessitatibus odio dignissimos nostrum unde iure veniam.</p>
-							<a href="#" class="btn btn-min btn-solid"> Read More  <i class="fa fa-arrow-right"></i> </a>
-						</div>
-					</div>
-					<div class="pagination-wrapper">
-						<ul class="pagination">
-							<li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#" class="active">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><span>...</span></li>
-							<li><a href="#">7</a></li>
-							<li><a href="#">8</a></li>
-							<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-						</ul>
-					</div>
+					@endforeach
+	                
+					{{ $blogs->links() }}
 				</div>	
 				<!-- sidebar -->
 				<div class="sidebar-wrapper col-md-4">

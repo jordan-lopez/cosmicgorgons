@@ -22,11 +22,11 @@
                     </div>
             </div>
             <ul class="sidebar-menu">
-                <li><a href="dashboard"><i class="icon icon-dashboard2"></i>Dashboard</a>
-                <li><a href="featured-news"><i class="icon icon-newspaper-o"></i>Featured News</a>
-                <li><a href="manage-food-menu"><i class="icon icon-restaurant_menu"></i>Manage Menu</a>
-                <li><a href="manage-daily-schedule-and-promo"><i class="icon icon-calendar"></i>Daily Schedule & Promo</a>
-                <li><a href="blog"><i class="icon icon-message"></i>Blog</a>
+                <li><a href="/dashboard"><i class="icon icon-dashboard2"></i>Dashboard</a>
+                <li><a href="/featured-news"><i class="icon icon-newspaper-o"></i>Featured News</a>
+                <li><a href="/manage-food-menu"><i class="icon icon-restaurant_menu"></i>Manage Menu</a>
+                <li><a href="/manage-daily-schedule-and-promo"><i class="icon icon-calendar"></i>Daily Schedule & Promo</a>
+                <li><a href="/blog"><i class="icon icon-message"></i>Blog</a>
             </ul>
         </section>
     </aside>

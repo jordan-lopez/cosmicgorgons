@@ -10,7 +10,7 @@ use Validator;
 class BlogController extends Controller
 {
     //
-    public function create(Request $request){
+    public function ajaxCreate(Request $request){
 
 	    $input = Input::all();
 	    if($input['image'])
@@ -45,15 +45,20 @@ class BlogController extends Controller
     		$image = '<td class="w-10"><span class="round">
                       <div class="thumbnail"><img src="'.$row->image.'" alt="user"></div></span>
                       </td>';
-            $title = '<h6>'.$row->title.'</h6>
-                      <small class="text-muted">TAGS: '.$row->tags.'</small>
-                      </td>';
+
+                      if ($row->tags == '') {
+            			$title = '<h6>'.$row->title.'</h6>';
+            		  }else{
+            			$title = '<h6>'.$row->title.'</h6><small class="text-muted">TAGS: '.$row->tags.'</small>';
+                 	  }
+            			
+                      '</td>';
             $author = '<td>AUTHOR NAME</td>';
-            $button = '<td><button type="button" class="btn btn-primary btn-sm btn_edit_featured_news" 
+            $button = '<td><a href="/blog/edit/'.$row->slug.'" class="btn btn-primary btn-sm btn_edit_featured_news" 
                       data-id="'.$row->id.'" data-image="'.$row->image.'" data-title="'.$row->title.'" 
-                      data-description="'.$row->content.'"><div class="s-18 icon-pencil"></div></button>&nbsp;<button 
+                      data-description="'.$row->content.'"><div class="s-18 icon-pencil"></div></a>&nbsp;<button 
                       type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                      data-target="#delete_featured_news_modal" data-id="'.$row->id.'"
+                      data-target="#delete_blog_modal" data-id="'.$row->id.'"
                       data-title="'.$row->title.'"><div class="s-18 icon-trash-o"></div></button></td>';
 
     		$data[] = array(
@@ -71,4 +76,53 @@ class BlogController extends Controller
 		return response()->json($output);
 		
 	}
+
+	public function ajaxUpdate(Request $request){
+
+		$input = Input::all();
+		$blog = Blog::findOrFail($input['hdn_edit_blog_id']);  
+
+        if(Input::file('image'))
+		   {
+		       $file = $input['image'];
+		       $name=time().$file->getClientOriginalName();
+		       $file->move(public_path().'/uploads/blogs/', $name);
+		       $image = 'uploads/blogs/'.$name;
+		   }
+		   else {
+		    $image = $input['hdn_edit_image'];
+		   }
+
+		$blog->title = $input['title'];
+		$blog->image = $image;
+		$blog->content = $input['content'];
+		$blog->tags = $input['tags'];
+		$blog->author_id = 1;
+		$blog->slug = str_slug($blog->title);
+
+		$blog->save();
+
+		return response()->json(['success'=>'Updated successfully.']);
+		
+	}
+
+	public function ajaxDelete(Request $request){
+
+		$input = Input::all();
+		Blog::find($input['hdn_delete_blog_id'])->delete();
+
+		return response()->json();
+		
+	}
+
+	public function checkTitle(Request $request){
+		
+		$blog = Blog::where('title', Input::get('title'))->first();
+	   	if ($blog) {
+	        return response()->json(FALSE);
+	   	} else {
+	        return response()->json(TRUE);
+	    }	
+	}
+
 }

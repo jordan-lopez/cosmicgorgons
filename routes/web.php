@@ -27,8 +27,12 @@ Route::get('manage-food-menu', 'AdminController@manageFoodMenu');
 
 Route::get('blog-show', 'BlogController@ajaxShow');
 Route::get('blog', 'AdminController@blog');
-Route::get('blog-create', 'AdminController@createBlog');
-Route::post('create-blog', 'BlogController@create');
+Route::get('blog/create', 'AdminController@createBlog');
+Route::get('blog/edit/{slug}', 'AdminController@editBlog')->name('edit-blog');
+Route::post('blog/create', 'BlogController@ajaxCreate');
+Route::post('blog/edit/{slug}', 'BlogController@ajaxUpdate');
+Route::post('blog/delete', 'BlogController@ajaxDelete');
+Route::get('check-title', 'BlogController@checkTitle');
 
 Route::get('featured-news', 'AdminController@featuredNews');
 Route::post('featured-news/store', 'NewsController@ajaxStore');
@@ -38,8 +42,8 @@ Route::post('featured-news/delete', 'NewsController@ajaxDelete');
 
 Route::get('dashboard', 'AdminController@dashboard');
 
-Route::get('blog-single', 'PagesController@blogSingle');
-Route::get('blog-list', 'PagesController@blogList');
+Route::get('blog/{slug}', 'PagesController@blogSingle');
+Route::get('blogs', 'PagesController@blogList');
 Route::get('and-beyond', 'PagesController@andBeyond');
 Route::get('loyalty-membership', 'PagesController@loyaltyMembership');
 Route::get('cosmic-quest', 'PagesController@cosmicQuest');

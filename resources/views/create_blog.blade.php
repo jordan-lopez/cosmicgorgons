@@ -2,6 +2,7 @@
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('/plugins/jQuery-Tags-Input-master/src/jquery.tagsinput.css') }}">
+<link rel="stylesheet" href="{{ asset('/plugins/dropzone-master/dist/dropzone.css') }}">
 <style type="text/css">
     div.tagsinput {
         width: 100% !important;
@@ -35,7 +36,8 @@
                                 <label for="tags" class="control-label">Tags:</label><br>
                                 <input type="text" class="form-control" id="tags" name="tags" autocomplete="off">
                                 <label for="image" class="control-label">Featured Image:*</label>
-                                <input type="file" class="form-control" id="image" name="image" autocomplete="off" required>  
+                                <input type="file" class="form-control" id="image" name="image" autocomplete="off" required> 
+                                <div class="thumbnail" id="thumbnail_prewiew"><img src="#" id="image_preview" alt="user"></div>  
                                 <hr>      
                                 <button type="submit" id="btn-add-blog" class="btn btn-primary">
                                     <span id="add-spinner" class="s-15"> Publish</span>
@@ -53,6 +55,7 @@
 </div>
 @endsection
 @section('scripts')
+<script src="{{ asset('/plugins/dropzone-master/dist/dropzone.js') }}"></script>
 <script src="{{ asset('/plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('/js/pages/blogs.js') }}"></script>
 <script src="{{ asset('/plugins/jquery-validation/dist/jquery.validate.js') }}"></script>

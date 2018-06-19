@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\FoodMenu;
+use App\Blog;
 
 class AdminController extends Controller {
 	public function dashboard() {
@@ -29,6 +30,15 @@ class AdminController extends Controller {
 	}
 
 	public function createBlog() {
-		return view('create-blog')->with(array('page' => 'Create Blog'));
+		return view('create_blog')->with(array('page' => 'Create Blog'));
+	}
+
+	public function editBlog($slug) {
+		$blog = Blog::where('slug', $slug)->first();
+        $title = $blog->title; 
+        $content = $blog->content; 
+        $tags = $blog->tags;
+        $image = $blog->image;
+		return view('edit-blog')->with(array('page' => 'Edit Blog', 'blog' => $blog, 'slug' => $slug, 'title' => $title, 'content' => $content, 'tags' => $tags, 'image' => $image));
 	}
 }

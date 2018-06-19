@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
+
 class PagesController extends Controller {
 
 	public function index() {
@@ -37,11 +39,13 @@ class PagesController extends Controller {
 	}
 
 	public function blogList() {
-		return view('blog_list')->with(array('page' => 'Blog List'));
+		$blogs = Blog::paginate(2);
+		return view('blog_list')->with(array('page' => 'Blog List', 'blogs' => $blogs));
 	}
 
-	public function blogSingle() {
-		return view('blog_single')->with(array('page' => 'Blog Single'));
+	public function blogSingle($slug) {
+		$blogs = Blog::all();
+		return view('blog_single')->with(array('page' => $slug, 'blogs' => $blogs));
 	}
 
 	public function bridgeCommand() {

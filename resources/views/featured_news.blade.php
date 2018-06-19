@@ -95,7 +95,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" id="btn-add-news" class="btn btn-primary"><span id="add-spinner" class="s-15 icon-spinner"> Save</span></button>
+                    <button type="submit" id="btn-add-news" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" id="btn-edit-news" class="btn btn-primary" style="width: 100px;"><span id="edit-spinner" class="s-15 icon-spinner"> Update</span></button>
+                    <button type="submit" id="btn-edit-news" class="btn btn-primary" style="width: 100px;">Update</button>
                 </div>
             </form>
         </div>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" id="btn-delete-news" class="btn btn-primary" style="width: 100px;"><span id="delete-spinner" class="s-15 icon-spinner"> Delete</span></button>
+                    <button type="submit" id="btn-delete-news" class="btn btn-primary" style="width: 100px;">Delete</button>
                 </div>
             </form>
         </div>

@@ -55,11 +55,7 @@
 								<a href="#">Partners</a>
 							</li>
 							<li>
-								<span>Blog</span>
-								<ul class="submenu">
-									<li><a href="blog-list">Blog List</a></li>
-									<li><a href="blog-single">Blog Single</a></li>
-								</ul>
+								<a href="/blogs">Blogs</a>
 							</li>
 							<li>
 								<a href="contact-us">Contact</a>

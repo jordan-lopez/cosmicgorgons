@@ -28,9 +28,8 @@ $(document).ready(function() {
             event.preventDefault();
 
             var data = new FormData($("#frm-add-event")[0]);
+            $('#btn-add-news').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i>Saving');
 
-            $('#btn-add-news span').attr('disabled', 'disabled').text(' Saving');
-            $('#add-spinner').addClass('icon-spinner');
             $.ajax({
                 url: 'featured-news/store',
                 type: 'POST',
@@ -77,8 +76,8 @@ $(document).ready(function() {
 
             var data = new FormData($("#frm-edit-event")[0]);
 
-            $('#btn-edit-news span').attr('disabled', 'disabled').text(' Updating');
-            $('#edit-spinner').addClass('icon-spinner');
+            $('#btn-edit-news').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i>Updating');
+
             $.ajax({
                 url: 'featured-news/update',
                 type: 'POST',
@@ -114,8 +113,8 @@ $(document).ready(function() {
 
         var data = new FormData($("#frm-delete-event")[0]);
 
-        $('#btn-delete-news span').attr('disabled', 'disabled').text(' Deleting');
-        $('#delete-spinner').addClass('icon-spinner');
+        $('#btn-delete-news').attr('disabled', 'disabled').html('<i class="icon icon-spinner icon-spin"></i>Deleting');
+
         $.ajax({
             url:'featured-news/delete',
             type:'POST',
