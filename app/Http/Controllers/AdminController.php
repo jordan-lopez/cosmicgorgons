@@ -39,6 +39,6 @@ class AdminController extends Controller {
         $content = $blog->content; 
         $tags = $blog->tags;
         $image = $blog->image;
-		return view('edit-blog')->with(array('page' => 'Edit Blog', 'blog' => $blog, 'slug' => $slug, 'title' => $title, 'content' => $content, 'tags' => $tags, 'image' => $image));
+		return view('edit-blog')->with(array('page' => 'Edit Blog', 'blog' => $blog));
 	}
 }

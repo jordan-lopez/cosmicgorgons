@@ -18,16 +18,16 @@
         <div class="container">
             <form id="frm-edit-blog" method="post" enctype="multipart/form-data" name="frm_edit_blog">
                 {{ csrf_field() }}
-                <input type="text" class="form-control" id="hdn_edit_blog_slug" name="hdn_edit_blog_slug" value="{{ $slug }}"> 
-                <input type="text" class="form-control" id="hdn_edit_blog_id" name="hdn_edit_blog_id" value="{{ $blog->id }}">
+                <input type="hidden" class="form-control" id="hdn_edit_blog_slug" name="hdn_edit_blog_slug" value="{{ $blog->slug }}"> 
+                <input type="hidden" class="form-control" id="hdn_edit_blog_id" name="hdn_edit_blog_id" value="{{ $blog->id }}">
                 <div class="row p-t-20">
                     <div class="col-lg-8">
                         <div class="p-40 border r-3 white">
                             <div class="form-group">
                                 <label for="title" class="control-label">Title:*</label>
-                                <input type="text" class="form-control" id="title" name="title" value="{{ $title }}" autocomplete="off" required>   
+                                <input type="text" class="form-control" id="title" name="title" value="{{ $blog->title }}" autocomplete="off" required>   
                                 <hr>                    
-                                <textarea id="content" name="content" required>{{ $content }}</textarea>
+                                <textarea id="content" name="content" required>{{ $blog->content }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -35,10 +35,10 @@
                         <div class="p-40 border r-3 white">
                             <div class="form-group">
                                 <label for="tags" class="control-label">Tags:</label><br>
-                                <input type="text" class="form-control" id="tags" name="tags" value="{{ $tags }}" autocomplete="off">
+                                <input type="text" class="form-control" id="tags" name="tags" value="{{ $blog->tags }}" autocomplete="off">
                                 <label for="image" class="control-label">Featured Image:*</label>
-                                <input type="hidden" name="hdn_edit_image" id="hdn_edit_image" value="{{ $image }}">
-                                <input type="file" class="form-control" id="image" name="image" autocomplete="off"><div class="thumbnail" id="thumbnail-edit"><img src="/{{ $image }}" id="image_preview" alt="user"></div> 
+                                <input type="hidden" name="hdn_edit_image" id="hdn_edit_image" value="{{ $blog->image }}">
+                                <input type="file" class="form-control" id="image" name="image" autocomplete="off"><div class="thumbnail" id="thumbnail-edit"><img src="/{{ $blog->image }}" id="image_preview" alt="user"></div> 
                                 <hr>      
                                 <button type="submit" id="btn-edit-blog" class="btn btn-primary">
                                     <span id="edit-spinner" class="s-15"> Update</span>
