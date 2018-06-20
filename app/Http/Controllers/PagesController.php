@@ -59,4 +59,5 @@ class PagesController extends Controller {
 	public function esportsTeam() {
 		return view('esports_team')->with(array('page' => 'ESPORTS Team'));
 	}
+
 }

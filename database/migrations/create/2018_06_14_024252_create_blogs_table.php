@@ -19,9 +19,9 @@ class CreateBlogsTable extends Migration
             $table->string('image');
             $table->string('tags')->nullable();
             $table->text('content');
-            $table->integer('author_id');
-            $table->foreign('author_id')
-                    ->references('id')->on('users')
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                    ->references('id')->on('categories')
                     ->onDelete('cascade');
             $table->string('slug')->unique();
             $table->timestamp('created_at')->nullable();

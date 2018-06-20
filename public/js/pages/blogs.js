@@ -46,7 +46,7 @@ $(document).ready(function() {
 			title: {
 				required:true,
 				remote:{
-                    url:"/check-title",
+                    url:"/check-blog-title",
                     type:"get"
                }
 			},
@@ -97,7 +97,13 @@ $(document).ready(function() {
    		ignore: [],
    		debug: false,
 		rules: {
-			title: "required",
+			title: {
+				required:true,
+				remote:{
+                    url:"/check-blog-title",
+                    type:"get"
+               }
+			},
 			content: {
 				required: function() {
 					CKEDITOR.instances.content.updateElement();
@@ -106,7 +112,10 @@ $(document).ready(function() {
 			}
 		},
 		messages:{
-			title: "The title field is required.",
+			title: {
+				required: "The title field is required.",
+                remote: "This title already exists."
+          	},
 			content: {
 				required: "Please enter Text",
 				minlength: "Please enter 10 characters"

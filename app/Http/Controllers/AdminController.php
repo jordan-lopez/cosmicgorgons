@@ -30,15 +30,16 @@ class AdminController extends Controller {
 	}
 
 	public function createBlog() {
-		return view('create_blog')->with(array('page' => 'Create Blog'));
+		$blog = Blog::all();
+		return view('create_blog')->with(array('page' => 'Create Blog', 'blog' => $blog));
 	}
 
 	public function editBlog($slug) {
 		$blog = Blog::where('slug', $slug)->first();
-        $title = $blog->title; 
-        $content = $blog->content; 
-        $tags = $blog->tags;
-        $image = $blog->image;
 		return view('edit-blog')->with(array('page' => 'Edit Blog', 'blog' => $blog));
+	}
+
+	public function category() {
+		return view('category')->with(array('page' => 'Category'));
 	}
 }

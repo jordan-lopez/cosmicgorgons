@@ -136,4 +136,14 @@ class NewsController extends Controller
 		
 	}
 
+	public function checkTitle(Request $request){
+		
+		$news = News::where('title', Input::get('title'))->first();
+	   	if ($news) {
+	        return response()->json(FALSE);
+	   	} else {
+	        return response()->json(TRUE);
+	    }	
+	}
+
 }

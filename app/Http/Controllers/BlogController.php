@@ -25,8 +25,8 @@ class BlogController extends Controller
 		$blog->title = $input['title'];
 		$blog->image = 'uploads/blogs/'.$name;
 		$blog->content = $input['content'];
+		$blog->category_id = 1;
 		$blog->tags = $input['tags'];
-		$blog->author_id = 1;
 		$blog->slug = str_slug($blog->title);
 		$blog->updated_at = null;
 
@@ -53,7 +53,7 @@ class BlogController extends Controller
                  	  }
             			
                       '</td>';
-            $author = '<td>AUTHOR NAME</td>';
+            $author = '<td>ADMIN</td>';
             $button = '<td><a href="/blog/edit/'.$row->slug.'" class="btn btn-primary btn-sm btn_edit_featured_news" 
                       data-id="'.$row->id.'" data-image="'.$row->image.'" data-title="'.$row->title.'" 
                       data-description="'.$row->content.'"><div class="s-18 icon-pencil"></div></a>&nbsp;<button 
@@ -96,8 +96,8 @@ class BlogController extends Controller
 		$blog->title = $input['title'];
 		$blog->image = $image;
 		$blog->content = $input['content'];
+		$blog->category_id = 1;
 		$blog->tags = $input['tags'];
-		$blog->author_id = 1;
 		$blog->slug = str_slug($blog->title);
 
 		$blog->save();

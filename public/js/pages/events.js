@@ -7,6 +7,44 @@ $(document).ready(function() {
         },
     });
 
+    $('#thumbnail-preview').hide();
+
+    function readUrlPreview(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#frm-add-event").find('#image_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#frm-add-event").find("#txt_news_image").change(function() {
+        readUrlPreview(this);
+        $('#thumbnail-preview').show();
+    });
+
+    function readUrlEdit(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#frm-edit-event").find('#image_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#frm-edit-event").find("#edit_txt_news_image").change(function() {
+        readUrlEdit(this);
+        $('#thumbnail-edit').show();
+    });
+
     $('#add-spinner').removeClass('icon-spinner');
     $('#edit-spinner').removeClass('icon-spinner');
     $('#delete-spinner').removeClass('icon-spinner');
@@ -15,12 +53,21 @@ $(document).ready(function() {
         ignore: [],
         debug: false,
         rules: {
-            title: "required",
+            title: {
+                required:true,
+                remote:{
+                    url:"/check-news-title",
+                    type:"get"
+               }
+            },
             description: "required",
             image: "required"
         },
         messages: {
-            title: "The title field is required.",
+            title: {
+                required: "The title field is required.",
+                remote: "This title already exists."
+            },
             description: "The description field is required.",
             image: "The image field is required."
         },
@@ -64,11 +111,20 @@ $(document).ready(function() {
         ignore: [],
         debug: false,
         rules: {
-            title: "required",
+            title: {
+                required:true,
+                remote:{
+                    url:"/check-news-title",
+                    type:"get"
+               }
+            },
             description: "required"
         },
         messages: {
-            title: "The title field is required.",
+            title: {
+                required: "The title field is required.",
+                remote: "This title already exists."
+            },
             description: "The description field is required."
         },
         submitHandler: function(frm_add_event, e) {
@@ -155,7 +211,7 @@ $(document).ready(function() {
         $('#frm-edit-event').find('#edit_txt_news_details').val(edit_txt_news_details);
         $('#frm-edit-event').find('#hdn_edit_image').val(edit_txt_news_image);
         $('#frm-edit-event').find('#hdn_edit_featured_news_yt').val(edit_txt_news_yt_link);
-        $('#frm-edit-event').find('#image').html('<img src='+edit_txt_news_image+' alt="user">');
+        $('#frm-edit-event').find('#thumbnail-edit').html('<img src='+edit_txt_news_image+' id="image_preview" alt="user">');
         if (edit_txt_news_yt_link !== '') {
             $('#frm-edit-event').find('#edit_txt_news_yt_link').val('https://www.youtube.com/watch?v='+edit_txt_news_yt_link);
         } else {
