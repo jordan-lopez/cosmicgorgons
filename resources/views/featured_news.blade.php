@@ -70,7 +70,7 @@
                                 <div class="form-group">
                                     <label for="txt_news_image" class="control-label">Image:*</label>
                                     <input type="file" class="form-control" id="txt_news_image" name="image" autocomplete="off">
-                                    <small class="error_image text-danger" hidden></small>
+                                    <br><div class="col-md-6 col-lg-4"><div class="thumbnail" id="thumbnail-preview"><img src="#" id="image_preview" alt="user"></div></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_yt_link" class="control-label">Youtube Link:</label>
@@ -131,7 +131,7 @@
                                 <div class="form-group">
                                     <label for="txt_news_image" class="control-label">Image:*</label>
                                     <input type="hidden" name="hdn_edit_image" id="hdn_edit_image">
-                                    <input type="file" class="form-control" id="edit_txt_news_image" name="edit_txt_news_image" autocomplete="off"><br><div class="col-md-6 col-lg-4"><div class="thumbnail" id="image"></div></div>
+                                    <input type="file" class="form-control" id="edit_txt_news_image" name="edit_txt_news_image" autocomplete="off"><br><div class="col-md-6 col-lg-4"><div class="thumbnail" id="thumbnail-edit"></div></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt_news_yt_link" class="control-label">Youtube Link:</label>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" id="btn-edit-news" class="btn btn-primary" style="width: 100px;">Update</button>
+                    <button type="submit" id="btn-edit-news" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>

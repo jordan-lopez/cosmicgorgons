@@ -32,13 +32,22 @@ Route::get('blog/edit/{slug}', 'AdminController@editBlog')->name('edit-blog');
 Route::post('blog/create', 'BlogController@ajaxCreate');
 Route::post('blog/edit/{slug}', 'BlogController@ajaxUpdate');
 Route::post('blog/delete', 'BlogController@ajaxDelete');
-Route::get('check-title', 'BlogController@checkTitle');
+Route::get('check-blog-title', 'BlogController@checkTitle');
 
 Route::get('featured-news', 'AdminController@featuredNews');
 Route::post('featured-news/store', 'NewsController@ajaxStore');
 Route::get('featured-news/show', 'NewsController@ajaxShow');
 Route::post('featured-news/update', 'NewsController@ajaxUpdate');
 Route::post('featured-news/delete', 'NewsController@ajaxDelete');
+Route::get('check-news-title', 'NewsController@checkTitle');
+
+Route::get('category', 'AdminController@category');
+Route::get('category-show', 'CategoryController@ajaxShow');
+Route::get('check-name', 'CategoryController@checkName');
+Route::post('category-store', 'CategoryController@ajaxStore');
+Route::post('category-update', 'CategoryController@ajaxUpdate');
+Route::post('category-delete', 'CategoryController@ajaxDelete');
+
 
 Route::get('dashboard', 'AdminController@dashboard');
 

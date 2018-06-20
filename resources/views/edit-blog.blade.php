@@ -18,7 +18,7 @@
         <div class="container">
             <form id="frm-edit-blog" method="post" enctype="multipart/form-data" name="frm_edit_blog">
                 {{ csrf_field() }}
-                <input type="hidden" class="form-control" id="hdn_edit_blog_slug" name="hdn_edit_blog_slug" value="{{ $blog->slug }}"> 
+                <input type="hidden" class="form-control" id="hdn_edit_blog_slug" name="hdn_edit_blog_slug" value="{{ $blog->slug }}">
                 <input type="hidden" class="form-control" id="hdn_edit_blog_id" name="hdn_edit_blog_id" value="{{ $blog->id }}">
                 <div class="row p-t-20">
                     <div class="col-lg-8">

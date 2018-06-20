@@ -27,6 +27,7 @@
                 <li><a href="/manage-food-menu"><i class="icon icon-restaurant_menu"></i>Manage Menu</a>
                 <li><a href="/manage-daily-schedule-and-promo"><i class="icon icon-calendar"></i>Daily Schedule & Promo</a>
                 <li><a href="/blog"><i class="icon icon-message"></i>Blog</a>
+                <li><a href="/category"><i class="icon icon-reorder2"></i>Category</a>
             </ul>
         </section>
     </aside>
